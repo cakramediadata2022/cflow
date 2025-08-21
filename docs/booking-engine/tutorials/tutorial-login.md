@@ -6,7 +6,7 @@ sidebar_position: 1
 
 This tutorial will guide you through the process of logging in to the Booking Engine at [https://chsres.com](https://chsres.com).
 
-![Login Page](../../static/img/login.png)
+![Login Page](../../../static/img/login.png)
 
 ## Steps to Login
 
