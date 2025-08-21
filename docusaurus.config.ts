@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'CFlow',
+  tagline: 'Documentation for your all in one solution',
   favicon: 'img/cakra.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -93,7 +93,13 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Cakrahub Booking Engine',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'cmSidebar',
+          position: 'left',
+          label: 'Cakrahub Channel Manager',
         },
       ],
     },
