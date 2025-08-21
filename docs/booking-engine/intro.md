@@ -2,46 +2,18 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the Cakrahub Booking Engine! Officially released in January 2025, our booking engine is already trusted by more than 10 clients and continues to grow rapidly.
 
-## Getting Started
+Cakrahub Booking Engine is designed to empower hotels and property owners with a robust, feature-rich platform to manage bookings efficiently and drive more direct reservations.
 
-Get started by **creating a new site**.
+## Key Features
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- **Customizable Landing Page**: Tailor your booking experience with a landing page that matches your brand and business needs.
+- **API Connectivity**: Seamlessly integrate with your existing systems and third-party services using our comprehensive API.
+- **Channel Manager & PMS Connectivity**: Effortlessly connect to multiple OTAs and synchronize with your Property Management System for unified operations.
+- **Fast & Reliable Connection**: Enjoy quick response times and stable performance, ensuring a smooth experience for both you and your guests.
+- **Multiple Payment Gateway Support**: Offer your guests a variety of payment options with our support for various payment gateways.
 
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Join our growing community and experience the next generation of online booking technology with Cakrahub Booking Engine.
