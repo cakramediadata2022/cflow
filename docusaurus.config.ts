@@ -73,8 +73,9 @@ const config: Config = {
     [
       require.resolve('docusaurus-plugin-search-local'),
       {
-        hashed: true,
-        highlightSearchTermsOnTargetPage: true
+      hashed: true,
+      highlightSearchTermsOnTargetPage: true,
+      docsRouteBasePath: ['docs'],
       },
     ],
   ],
