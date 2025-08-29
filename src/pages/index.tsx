@@ -11,21 +11,27 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Cakrasoft Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
+    <header className={clsx('hero hero--dark', styles.heroBanner)}>
+  <div className="container">
+    <h1 className={styles.heroTitle}>
+      Build <span className={styles.highlight}>optimized</span> bookings{" "}
+      <span className={styles.highlight}>quickly</span>, <br />
+      focus on your <span className={styles.highlight}>business</span>
+    </h1>
+    <p className={styles.heroSubtitle}>
+      {siteConfig.tagline}
+    </p>
+    <div className={styles.buttons}>
+      <Link
+        className={clsx("button button--secondary button--lg", styles.ctaButton)}
+        to="/docs/booking-engine/intro"
+      >
+        Get Started 🚀
+      </Link>
+    </div>
+  </div>
+</header>
+
   );
 }
 
