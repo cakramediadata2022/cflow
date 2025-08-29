@@ -112,7 +112,7 @@ const config: Config = {
           items: [
             {
               label: 'Tutorial',
-              to: '/docs/intro',
+              to: '/docs/booking-engine/intro',
             },
           ],
         },
@@ -120,34 +120,27 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Website',
+              href: 'https://cakrasoft.com/',
             },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+
           ],
         },
         {
-          title: 'More',
+          title: 'Social Media',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Instagram',
+              href: 'https://www.instagram.com/cakramediadata/',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/pt--cakra-media-data/posts/?feedView=all',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Cakra Media Data`,
     },
     prism: {
       theme: prismThemes.github,
