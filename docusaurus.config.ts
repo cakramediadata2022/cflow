@@ -73,9 +73,9 @@ const config: Config = {
     [
       require.resolve('docusaurus-plugin-search-local'),
       {
-      hashed: true,
-      highlightSearchTermsOnTargetPage: true,
-      docsRouteBasePath: ['docs'],
+        hashed: true,
+        highlightSearchTermsOnTargetPage: true,
+        docsRouteBasePath: ['docs'],
       },
     ],
   ],
@@ -101,6 +101,12 @@ const config: Config = {
           sidebarId: 'cmSidebar',
           position: 'left',
           label: 'Cakrahub Channel Manager',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'pmsSidebar',
+          position: 'left',
+          label: 'Property Management System',
         },
       ],
     },
