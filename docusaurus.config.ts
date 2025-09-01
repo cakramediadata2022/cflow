@@ -90,6 +90,12 @@ const config: Config = {
         src: 'img/cakra.png',
       },
       items: [
+              {
+          type: 'docSidebar',
+          sidebarId: 'pmsSidebar',
+          position: 'left',
+          label: 'Property Management System',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
@@ -102,12 +108,7 @@ const config: Config = {
           position: 'left',
           label: 'Cakrahub Channel Manager',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'pmsSidebar',
-          position: 'left',
-          label: 'Property Management System',
-        },
+
       ],
     },
     footer: {
