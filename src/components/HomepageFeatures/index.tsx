@@ -84,7 +84,7 @@ export default function HomepageFeatures(): ReactNode {
       with built-in reporting and analytics to track performance and make smarter 
       decisions for your property.
     </p>
-              <a className={ clsx("button button--secondary button--lg margin-top--lg", styles.ctbButton)} href="/docs/pms/intro">
+              <a className={ clsx("button button--secondary button--lg margin-top--lg", styles.ctbButton)} href="/docs/property-management-system/intro">
       Learn How It Works 🏨
     </a>
   </div>

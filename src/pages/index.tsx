@@ -14,9 +14,9 @@ function HomepageHeader() {
     <header className={clsx('hero hero--dark', styles.heroBanner)}>
   <div className="container">
     <h1 className={styles.heroTitle}>
-      Build <span className={styles.highlight}>optimized</span> bookings{" "}
-      <span className={styles.highlight}>quickly</span>, <br />
-      focus on your <span className={styles.highlight}>business</span>
+      One <span className={styles.highlight}>Powerful</span> System for{" "}
+          <span className={styles.highlight}>Bookings</span>, <br />
+          <span className={styles.highlight}>Management</span>, and <span className={styles.highlight}>Growth</span>
     </h1>
     <p className={styles.heroSubtitle}>
       {siteConfig.tagline}
