@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
-# Accounting Module Introduction
+# Introduction (Accounting)
 
 The Accounting module provides comprehensive financial management tools for the property. It supports a wide range of accounting operations, from daily transactions to budgeting and reconciliation, ensuring accurate and efficient financial control.
 
