@@ -4,15 +4,17 @@ sidebar_position: 1
 
 # Introduction (Inventory & Asset)
 
-The Banquet module is designed to manage all aspects of banquet operations within the property. It provides tools for booking events, monitoring ongoing banquet processes, and viewing banquet schedules and details.
+The Inventory & Asset module is designed to manage all aspects of inventory and asset operations within the property. It provides tools for tracking stock levels, managing asset lifecycles, and monitoring inventory movements to ensure efficient resource utilization and control.
 
 ## Key Features
 
-- **Booking**: Reserve banquet venues for events, manage event details, and track bookings efficiently.
-- **Banquet In Process**: Monitor and manage banquets that are currently in progress, including event status and operational details.
-- **Banquet View**: View upcoming, ongoing, and past banquet events, including schedules, venue assignments, and event summaries.
+- **Inventory Management**: Track stock levels, monitor item movements, and manage inventory locations to prevent shortages and overstocking.
+- **Asset Management**: Record and monitor assets, including acquisition, depreciation, maintenance, and disposal.
+- **Stock Transactions**: Process stock in, stock out, transfers, and adjustments to maintain accurate inventory records.
+- **Asset Tracking**: Assign assets to departments or users, schedule maintenance, and track asset status.
+- **Reporting**: Generate inventory and asset reports for analysis and decision-making.
 
-The Banquet module streamlines event management, ensuring smooth coordination from booking to completion and providing clear visibility into all banquet activities.
+The Inventory & Asset module streamlines resource management, supports operational efficiency, and provides clear visibility into inventory and asset status across the property.
 
 ---
 
