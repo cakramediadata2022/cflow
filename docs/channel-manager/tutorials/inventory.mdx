@@ -1,0 +1,296 @@
+---
+sidebar_position: 4
+---
+
+# Inventory
+
+Menu Inventory digunakan untuk mengelola ketersediaan kamar (availability), harga (rates), dan pembatasan (restrictions) secara real-time ke berbagai OTA (Online Travel Agent).
+
+<div style={{ marginBottom: "1.5rem" }}>
+  <img
+    src="/img/cm/inv/inv-list.png"
+    alt="Inventory"
+    style={{
+      width: "100%",
+      borderRadius: "12px",
+      boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+    }}
+  />
+</div>
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import "react-image-gallery/styles/css/image-gallery.css";
+
+## Fitur & Cara Penggunaan Inventory
+
+<Tabs className="unique-tabs">
+  <TabItem value="list" label="Lihat Inventory" default>
+    Pada halaman Inventory, Anda dapat melihat seluruh data ketersediaan kamar, harga, dan pembatasan untuk setiap tanggal dan tipe kamar.
+    
+    - Tabel menampilkan tanggal, tipe kamar, jumlah tersedia, harga, dan pembatasan (min stay, max stay, dsb).
+    - Gunakan filter harga kamar atau tipe kamar untuk pencarian cepat.
+    
+    <img
+      src="/img/cm/inv/inv-list.png"
+      alt="Inventory List"
+      style={{
+        borderRadius: "8px",
+        marginTop: "1rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
+    />
+    
+  </TabItem>
+  <TabItem value="update" label="Update Inventory">
+    Untuk memperbarui data inventory:
+    
+    - Klik data inventory, bisa di klik rate atau availabilitynya.
+    - Muncul form inputan.
+    - Pilih tanggal dan tipe kamar yang ingin diubah.
+    - Masukkan jumlah ketersediaan, harga, atau pembatasan baru.
+    - Simpan perubahan, data akan langsung tersinkron ke semua OTA.
+    
+    <BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/inv/update-inv1.png" },
+          { original: "/img/cm/inv/update-inv2.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+
+    :::info Update Inventory
+
+    - **Date Range**: Anda bisa memilih dari tanggla berapa availability atau rate akan di update.  
+    - **Restriction**: ada pilihan restriction pada update rate seperti: close to arrival, close to departure, max stay, min stay, rate dan stop sell, _default **rate**_. 
+
+    **Detail Dari pilihan Restriction :**
+      1. **Close To Arrival**: Membatasi tamu untuk tidak bisa check-in pada tanggal tertentu, tapi tetap bisa menginap jika sudah stay dari hari sebelumnya. **Contoh Kasus**:
+      Jika tanggal 25 Oktober diset CTA = ON, maka tamu tidak bisa mulai menginap pada tanggal 25, tetapi tamu yang sudah check-in tanggal 24 dan menginap sampai 26 tetap bisa.
+      2. **Close To Departure**: Membatasi tamu untuk tidak bisa check-out pada tanggal tertentu. **Contoh Kasus**: Jika tanggal 31 Desember diset CTD = ON, maka tamu tidak bisa mengakhiri masa inapnya di tanggal 31, tapi masih bisa stay melewati tanggal itu (misal checkout 1 Januari).
+      3. **Max Stay**: Menentukan batas maksimum jumlah malam yang bisa dipesan oleh tamu. **Contoh Kasus**:
+      Jika Max Stay = 5, maka tamu hanya bisa memesan maksimal 5 malam berturut-turut.
+      4. **Min Stay**: Menentukan jumlah malam minimum yang wajib dipesan oleh tamu. **Contoh Kasus**:
+      Jika Min Stay = 3, maka tamu tidak bisa memesan hanya 1 atau 2 malam, harus minimal 3 malam.
+      5. **Rate**: Harga per malam (rate) yang dikirim ke OTA melalui Channel Manager. **Kegunaan**:
+      Nilai ini adalah tarif jual kamar yang akan muncul di OTA seperti Booking.com, Agoda, Traveloka, dsb.
+      6. **Stop Sell**: Menutup penjualan kamar di tanggal tertentu, artinya tidak ada kamar yang bisa dipesan di OTA untuk tanggal itu. **Contoh Kasus**:
+      Jika Stop Sell = ON untuk 20 Desember, maka tanggal tersebut akan tertutup di semua OTA — walaupun kamar masih tersedia di sistem internal.
+    :::
+
+---
+
+<BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/inv/update-inv3.png" },
+          { original: "/img/cm/inv/update-inv4.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+# Bulk Update & Availability Rules
+
+**_Bulk Update_** adalah fitur untuk mengubah banyak data (rate, availability, restrictions, stop-sell, inventory allocation, mapping, dsb.) sekaligus untuk rentang tanggal, banyak room types, atau banyak channel/OTA dalam satu aksi.
+
+**Tujuan utama** :
+- Menghemat waktu operator daripada mengubah satu-per-satu.
+- Menjaga konsistensi pengaturan di banyak channel.
+
+**Komponen yang biasa bisa di-bulk**:
+- Availability / Inventory (jumlah kamar tersedia)
+- Stop Sell (tutup penjualan)
+- Min Stay / Max Stay (restriksi masa inap)
+- Close To Arrival / Close To Departure
+- Rate Plan Assignment (ganti rate plan untuk banyak tanggal)
+- Promotions / Discounts (terapkan diskon massal)
+- Channel selection — targetkan semua OTA atau subset (mis. Booking + Agoda)
+
+**_Availability Rule_** is a way to setup Availability Overrides for specific Room Types and Channels. This feature can be useful if you would like to close out some specific channel, decrease Availability or set Max Availability for it.
+
+**Example of use cases**:
+- Stop sales for Christmas vacation at Channel A
+- Set Max Availability for Room Type A at Channel B
+
+**Detail penjelasan**:
+- **Affected Dates**: Here you should set the date range for the rule, you can set many years ahead if you want to set for a long time
+- **Type**: Close Out, Availability Offset, Max Availability _(Details below what each of these means)_
+- **Affected Channels**: You need to select which OTA this rul applies to
+- **Room Types**: Choose which room types this rule affects.
+
+:::tip Detail Type
+
+**_Close Out_**
+This is used if you want to stop giving availability for this OTA on the selected dates
+
+_Example_: You want to block all of August to Expedia as you are busy with direct sales instead.
+
+**_Max Availability_**
+This setting will limit the availability for the room
+
+_Example_: If you have 10 rooms and set Max Availability to 5 then the channel will only see 5 rooms available even if you have 10 total.
+If one room is booked and now 9 total is left the channel will still get an update to show 5. It will work like this until the total available is less than the max available rooms and then it will work as normal.
+
+_Typical Use Cases_:
+- Limit rooms available so you don't get large group bookings
+
+- Limit rooms available so rooms look more scarce on the channel
+
+**_Availability Offset_**
+This setting just applies a negative amount to the availability, you don't need to enter a negative sign.
+If you set "2" to the offset and you have 10 double rooms total then you will have 10 - 2 = 8 rooms to sell.
+Once you have 2 rooms left you end up with 0 rooms left (2 - 2 = 0)
+
+_Use Case_:
+- Stop giving availability to some high commission channels when only a few rooms left
+- Give last room availability to selected channels or own website
+
+:::
+
+  </TabItem>
+  <TabItem value="sync" label="Sinkronisasi">
+    Semua perubahan inventory akan otomatis tersinkron ke OTA.
+    
+    - Tidak perlu update manual ke masing-masing OTA.
+    - Anda bisa click icon rantai yang berwarna biru untuk melihat detail ota yang terhubung dengan rate tersebut.
+    - Pad menu ini anda juga bisa melihat rate yang dikirim ke masing-masing ota.
+    
+    <img
+      src="/img/cm/inv/sync-inv.png"
+      alt="Sync Inv"
+      style={{
+        borderRadius: "8px",
+        marginTop: "1rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
+    />
+  </TabItem>
+  <TabItem value="log" label="Log Perubahan">
+    Anda dapat melihat riwayat perubahan inventory:
+    
+    - Tersedia log siapa yang mengubah, kapan, dan detail perubahan.
+    - Membantu audit dan troubleshooting jika ada masalah ketersediaan/harga di OTA.
+    
+    <BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/inv/inv-log1.png" },
+          { original: "/img/cm/inv/inv-log2.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+  </TabItem>
+</Tabs>
+
+## Informasi Tambahan
+
+- **Real-Time Update**: Setiap perubahan langsung dikirim ke seluruh OTA yang terhubung.
+- **Multi-Property**: Kelola inventory untuk banyak properti dalam satu dashboard.
+- **Keamanan Data**: Hanya user berwenang yang dapat mengubah inventory.
+
+:::info Penting
+Menu inventory sangat penting untuk memastikan ketersediaan kamar dan harga di semua channel selalu akurat dan up-to-date.
+:::
