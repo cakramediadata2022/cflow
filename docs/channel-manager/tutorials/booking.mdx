@@ -1,0 +1,136 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import "react-image-gallery/styles/css/image-gallery.css";
+
+# Bookings
+
+Menu **Bookings** digunakan untuk menampilkan dan memfilter daftar pemesanan (booking) yang masuk dari berbagai OTA (Online Travel Agent) ke dalam sistem PMS. Menu ini tidak menyediakan fitur untuk membuat, mengedit, atau menghapus booking secara manual. Semua data booking yang tampil adalah hasil sinkronisasi otomatis dari OTA.
+
+<div style={{ marginBottom: "1.5rem" }}>
+  <img
+    src="/img/cm/bookings/booking-list.png"
+    alt="Bookings Management"
+    style={{
+      width: "100%",
+      borderRadius: "12px",
+      boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+    }}
+  />
+</div>
+
+## Fungsi Utama Bookings
+
+- **Monitoring Real-Time**: Semua booking terbaru dari OTA langsung muncul di dashboard.
+- **Filter & Pencarian**: Dapat memfilter daftar booking berdasarkan tanggal, status, OTA, atau nama tamu.
+- **Lihat Detail**: Dapat melihat detail lengkap data tamu, kamar, dan status booking yang diterima dari OTA.
+- **Resolve Mapping**: Jika ada booking yang masuk namun room type atau rate belum di-mapping, menu ini menyediakan fitur resolve untuk menghubungkan data booking ke room type dan rate yang benar di sistem.
+
+## Fitur Menu Bookings
+
+<Tabs className="unique-tabs">
+
+  <TabItem value="list" label="Lihat & Filter Booking" default>
+
+    Pada halaman Bookings, Anda dapat:
+
+    - Melihat seluruh daftar booking yang masuk dari berbagai OTA.
+    - Tabel menampilkan nama tamu, tanggal check-in/check-out, status booking, sumber OTA, dan total pembayaran.
+    - Menggunakan fitur search dan filter untuk pencarian cepat berdasarkan tanggal, status, OTA, atau nama tamu.
+
+    <img
+      src="/img/cm/bookings/booking-list.png"
+      alt="Daftar Booking"
+      style={{
+        borderRadius: "8px",
+        marginTop: "1rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
+    />
+  </TabItem>
+
+  <TabItem value="detail" label="Lihat Detail Booking">
+
+    Klik salah satu baris booking untuk melihat detail lengkap:
+
+    - Informasi tamu, kamar, harga, permintaan khusus, riwayat perubahan, dan status pembayaran yang diterima dari OTA.
+    - Tidak ada fitur edit, hanya tampilan detail data booking.
+
+    <img
+      src="/img/cm/bookings/booking-view.png"
+      alt="Detail Booking"
+      style={{
+        borderRadius: "8px",
+        marginTop: "1rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
+    />
+  </TabItem>
+
+  <TabItem value="resolve" label="Resolve Mapping">
+
+    Jika ada booking yang masuk namun room type atau rate belum di-mapping,
+    akan muncul notifikasi dan tombol **Resolve**.
+
+    - Klik **Resolve** untuk melihat detail ke 2 dari data booking
+    - Klik **Allocate** untuk menampilkan form dan anda bisa menghubungkan booking ke room type dan rate yang benar di sistem.
+    - Setelah berhasil di-resolve, booking akan terhubung dan akan masuk ke PMS.
+
+    <BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/bookings/detail-resolve.png" },
+          { original: "/img/cm/bookings/detail-resolve2.png" },
+          { original: "/img/cm/bookings/detail-resolve3.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+  </TabItem>
+</Tabs>
+
+:::info Penting
+Fitur resolve hanya muncul jika ada booking yang belum terhubung ke room type atau rate di sistem.
+:::
+
+## Catatan Penting
+
+- Menu bookings hanya untuk menampilkan, memfilter, dan melihat detail data booking yang diterima dari OTA.
+- Tidak ada fitur create, edit, atau delete booking secara manual.
