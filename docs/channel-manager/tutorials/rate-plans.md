@@ -2,9 +2,9 @@
 sidebar_position: 6
 ---
 
-# Rate Plans (Channex)
+# Rate Plans
 
-Menu **Rate Plans** pada Channex digunakan untuk membuat, mengedit, menghapus, dan melihat daftar rate plan yang akan digunakan untuk pengelolaan harga dan promosi di berbagai OTA. Setiap rate plan yang berhasil dibuat akan otomatis muncul di menu Inventory untuk pengaturan harga dan ketersediaan.
+Menu **Rate Plans** digunakan untuk membuat, mengedit, menghapus, dan melihat daftar rate plan yang akan digunakan untuk pengelolaan harga dan promosi di berbagai OTA. Setiap rate plan yang berhasil dibuat akan otomatis muncul di menu Inventory untuk pengaturan harga dan ketersediaan.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -94,11 +94,11 @@ Rate plan adalah komponen utama dalam distribusi harga dan promosi ke OTA karena
 
 ## Integrasi dengan PMS
 
-Rate Plan di Channex dapat:
+Rate Plan dapat:
 
 - **Sinkron dengan PMS**: Gunakan nama dan data yang sama dengan PMS Anda
 - **Customized**: Buat nama dan aturan harga yang berbeda untuk kebutuhan marketing
-- **Mapping Fleksibel**: Satu rate plan PMS bisa di-mapping ke beberapa rate plan Channex
+- **Mapping Fleksibel**: Satu rate plan PMS bisa di-mapping ke beberapa rate plan di sistem
 
 :::tip Best Practice
 Buat nama rate plan yang jelas dan mudah dipahami tamu, serta pastikan aturan harga dan pembatalan sesuai kebutuhan bisnis.
