@@ -47,40 +47,36 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    subgraph "User/Hotel Ops"
-        A1[Buat Property di CM]
-        A2[Setting PMS Configuration]
-        A3[Sinkron Room & Rate]
-    end
-
     subgraph "Channel Manager"
-        B1[Generate PMS Connectivity]
-        B2[Store PMS Connectivity]
-        B3[Validate Configuration]
+        A1[Create Property]
+        A2[Create PMS Connectivity]
+        A3[Setup Room & Rate]
+        A4[Mapping Room & Rate]
     end
 
     subgraph "PMS System"
-        C1[Setup CM Connection]
-        C2[Map Room Type & Rate]
-        C3[Set Sync Parameters]
+        B1[Setup CM Connection]
+        B2[Setup Room Rate di config]
+        B3[Sync Availability & Rate]
     end
 
     subgraph "Developer/Service"
-        D1[Register Property]
-        D2[Map CM-PMS Credentials]
-        D3[Enable Sync Service]
+        C1[Register Property]
+        C2[Map CM-PMS Credentials]
+        C3[Enable Sync Service]
     end
 
-    A1 --> B1
-    B1 --> A2
-    A2 --> C1
-    C1 --> A3
-    A3 --> C2
+    A1 --> A2
+    A2 --> A3
+    A3 --> A4
+    A4 --> B1
+    B1 --> B2
+    B2 --> C1
+    C1 --> C2
     C2 --> C3
-    C3 --> D1
-    D1 --> D2
-    D2 --> D3
-    D3 --> B3
+    C3 --> B3
+
+
 ```
 
 ### 3. Standard flow integration
@@ -105,13 +101,16 @@ classDiagram
         ------------------------------------------------------------
         Catatan:
         1. Untuk hotel id di isi dengan hotel code nya channel manager
-
+        2. Jika di CM, PMS dan Service sudah selesai, bisa lakukan 
+        _**Sync Rate**_ → ada di menu room rate → post to cm.
+         **_Sync availability_** → ada pada menu room type availability
     }
     class Service{
         1. daftarkan property pada service
 ----------------------------------------------------------------------------------------
         Catatan: service berperan sebagai jembatan antara PMS dengan CM, 
         jadi jika ingin data terintegrasi automatis, seperti pengiriman availabilitiy
+        daftarkan terlebih dahulu property pada service
     }
 
 
@@ -300,6 +299,7 @@ Mohon bantuan untuk mendaftarkan property baru ke Service dengan data berikut:
 - Password: [PASSWORD_FROM_CM]  // Akan dishare via secure channel
 - Hotel ID: [HOTEL_CODE]
 - WSDL/Endpoint: [ENDPOINT_URL]
+- Vendor: [VENDOR_CM] // Cakrahub
 
 **Request:**
 1. Tambahkan property ke Service database
@@ -319,17 +319,16 @@ Thanks,
 
 ## Catatan Teknis & Best Practices
 
-### Security Considerations
+### Security
 
 - **API Access:** Gunakan HTTPS untuk semua komunikasi antar service
-- **Rate Limiting:** Implementasi rate limiting untuk mencegah abuse
+- **API Key:** Simpan api key dengan aman untuk memudahkan anda mengelola kedepannya
 - **Audit Trail:** Log semua perubahan data untuk audit
-
 
 ### Error Handling
 
-- **Cek Log:** Setiap komunikasi antara cm dan pms, log aliran data nya sudah tercatat di dalam servie, anda bisa melakukan tracking data disini untuk menemukan error nya dimana
+- **Cek Log:** Setiap komunikasi antara cm dan pms, log aliran data nya sudah tercatat di dalam service, anda bisa melakukan tracking data disini untuk menemukan error nya dimana
 
 ---
 
-**💡 Tips:** Selalu lakukan testing di staging environment sebelum production deployment. Koordinasikan dengan semua stakeholder (Hotel Ops, PMS Team, Developer) untuk memastikan integrasi berjalan smooth.
+**💡 Tips:** Selalu lakukan testing di staging environment sebelum production deployment. Koordinasikan dengan semua stakeholder (Hotel Ops, PMS Team, Developer) untuk memastikan integrasi berjalan smooth.   
