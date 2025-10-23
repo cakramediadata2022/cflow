@@ -102,12 +102,12 @@ Room Type adalah fondasi utama dalam channel management karena:
 
 ### Field Wajib (Label Merah)
 
-- **Room Type Code**: Kode unik untuk identifikasi internal
-- **Room Type Name**: Nama tipe kamar yang akan ditampilkan di OTA
+- **Room Type Code**: Kode unik untuk identifikasi internal `required`
+- **Room Type Name**: Nama tipe kamar yang akan ditampilkan di OTA `required`
 
-- **Count of Rooms**: Jumlah kamar yang menggunakan room type tersebut
-- **Default Occupancy**: How many guests can stay in the room by default (without extra spaces). Keep in mind, this field can not be greater than `occ_adults` value. Typically this value is set equal to amount of adults.
-- **Occupancy Adult**: How many Adult bed spaces have in this Room Type.
+- **Count of Rooms**: Jumlah kamar yang menggunakan room type tersebut `required`
+- **Default Occupancy**: How many guests can stay in the room by default (without extra spaces). Keep in mind, this field can not be greater than `occ_adults` value. Typically this value is set equal to amount of adults. `required`
+- **Occupancy Adult**: How many Adult bed spaces have in this Room Type. `required`
 
 ### Field Opsional
 
