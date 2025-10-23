@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 <div style={{marginBottom: '1.5rem'}}>
 <img
-			src="/img/cm/room-type/pms-log-list.png"
+			src="/img/cm/log-pms/log-list.png"
 			alt="PMS Log List"
 			style={{
 				borderRadius: "8px",
@@ -36,18 +36,9 @@ import TabItem from '@theme/TabItem';
 		Untuk melihat log booking:
     
 		1. Buka menu PMS Log.
-		2. Pilih tanggal atau filter yang diinginkan.
+		2. Pilih filter yang diinginkan.
 		3. Lihat status booking (berhasil, pending, gagal) beserta detailnya.
     
-		<img
-			src="/img/cm/room-type/pms-log-detail.png"
-			alt="PMS Log Detail"
-			style={{
-				borderRadius: "8px",
-				marginTop: "1rem",
-				boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-			}}
-		/>
 		:::info Status Booking
 		Status booking akan ditampilkan secara real-time sesuai hasil pengiriman ke PMS.
 		:::
@@ -57,9 +48,14 @@ import TabItem from '@theme/TabItem';
 ## Detail Log Booking
 
 - **Booking ID**: ID booking yang dikirim ke PMS
+- **Booking Date**: Tanggal bookingan di buat
+- **Check-in**: Tanggal tamu masuk
+- **Check-out**: Tanggal tamu keluar
+- **OTA Code**: Code OTA
 - **Status**: Berhasil, pending, atau gagal
-- **Timestamp**: Waktu pengiriman booking
-- **Error Message**: Pesan error jika terjadi kegagalan
+- **Time Add**: Waktu bookingan masuk ke system
+- **Time Notify**: Waktu pengiriman data booking ke pms
+- **Time Confirm**: Waktu pms memberikan confirmasi
 
 ## Integrasi dengan PMS
 
