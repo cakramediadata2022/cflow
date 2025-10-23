@@ -3,9 +3,10 @@ title: Manager User
 sidebar_label: Manage User
 sidebar_position: 5
 ---
+
 # Manage User
 
-Menu **Manage User** adalah pusat pengelolaan seluruh user yang dapat diatur dalam sistem integrasi. Di sini Anda dapat membuat, mengedit, dan menghapus user, serta mengatur hak akses dan detail user sesuai kebutuhan operasional. Semua data user yang diinputkan akan digunakan untuk proses manajemen dan pengaturan hak akses agar integrasi berjalan lancar dan konsisten.
+The **Manage User** menu is the center for managing all users that can be configured in the integration system. Here you can create, edit, and delete users, as well as set access rights and user details according to operational needs. All user data inputted will be used for management processes and access right configuration so integration runs smoothly and consistently.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,23 +23,23 @@ import TabItem from '@theme/TabItem';
 />
 </div>
 
-## Mengapa Menu Manage User Penting?
+## Why is the Manage User Menu Important?
 
-- **Manajemen Hak Akses**: Mengatur user dan hak aksesnya sesuai kebutuhan
-- **CRUD Data User**: Membuat, mengedit, dan menghapus data user
-- **Konsistensi Data**: Memastikan data user selalu sinkron
-- **Fleksibilitas**: Data user dapat disesuaikan dengan kebutuhan operasional
+- **Access Rights Management**: Configure users and their access rights as needed
+- **User Data CRUD**: Create, edit, and delete user data
+- **Data Consistency**: Ensure user data is always synchronized
+- **Flexibility**: User data can be adjusted according to operational needs
 
-## Pengelolaan Data Manage User
+## Manage User Data Management
 
 <Tabs className="unique-tabs">
   <TabItem value="create" label="Create" default>
-    Untuk membuat user baru:
+    To create a new user:
     
-    1. Klik tombol **"+ Create"** di pojok kanan atas.
-    2. Isi form dengan data user yang diperlukan.
-    3. **Field dengan label merah wajib diisi** - pastikan tidak ada yang terlewat.
-    4. Simpan, dan data akan otomatis tersedia pada list.
+    1. Click the **"+ Create"** button in the top right corner.
+    2. Fill the form with required user data.
+    3. **Fields with red labels are mandatory** - make sure nothing is missed.
+    4. Save, and data will automatically be available in the list.
     
     <img
       src="/img/cm/manage-user/manage-form.png"
@@ -49,16 +50,16 @@ import TabItem from '@theme/TabItem';
         boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
       }}
     />
-    :::warning Field Wajib
-    Pastikan semua field dengan **label merah** telah diisi dengan benar sebelum menyimpan data.
+    :::warning Mandatory Fields
+    Make sure all fields with **red labels** have been filled correctly before saving data.
     :::
   </TabItem>
   <TabItem value="edit" label="Edit">
-    Untuk mengedit data user yang sudah ada:
+    To edit existing user data:
     
-    - Klik tombol **Edit** pada baris data yang ingin diubah.
-    - Ubah data sesuai kebutuhan (field merah tetap wajib diisi).
-    - Simpan perubahan, data akan terupdate di sistem terkait.
+    - Click the **Edit** button on the data row you want to change.
+    - Change data as needed (red fields remain mandatory).
+    - Save changes, data will be updated in related systems.
     
     <img
       src="/img/cm/manage-user/manage-edit.png"
@@ -70,15 +71,15 @@ import TabItem from '@theme/TabItem';
       }}
     />
     :::info Auto-Update
-    Perubahan data akan otomatis tersinkron ke sistem yang terhubung.
+    Data changes will automatically sync to connected systems.
     :::
   </TabItem>
   <TabItem value="delete" label="Remove">
-    Untuk menghapus data user:
+    To delete user data:
     
-    - Klik tombol **Remove** pada baris data yang akan dihapus.
-    - Konfirmasi penghapusan melalui dialog yang muncul.
-    - Data akan dihapus dari sistem dan tidak lagi tersedia.
+    - Click the **Remove** button on the data row to be deleted.
+    - Confirm deletion through the dialog that appears.
+    - Data will be deleted from the system and no longer available.
     
     <img
       src="/img/cm/manage-user/manage-remove.png"
@@ -89,28 +90,27 @@ import TabItem from '@theme/TabItem';
         boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
       }}
     />
-    :::danger Peringatan
-    Penghapusan data akan menghapus semua hak akses terkait. Pastikan tidak ada proses aktif sebelum menghapus.
+    :::danger Warning
+    Deleting data will remove all related access rights. Make sure no active processes exist before deleting.
     :::
   </TabItem>
 </Tabs>
 
-## Detail Form Input Manage User
+## Manage User Input Form Details
 
-### Field Wajib (Label Merah)
+### Mandatory Fields (Red Label)
 
-- **Username**: Nama user `required`
-- **Group Code**: Pilih group/role/ peran user `required`
-- **Email**: Email user `required`
-- **Password**: Password unix `required`
-- **User Api Key**: Untuk memberikan batasan mengelola property/hotel `required`
-- **Active**: Activasi akun, set ke inactive jika diperlukan `default: active`
+- **Username**: User name `required`
+- **Group Code**: Select user group/role/position `required`
+- **Email**: User email `required`
+- **Password**: Unix password `required`
+- **User Api Key**: To provide limitations for managing properties/hotels `required`
+- **Active**: Account activation, set to inactive if needed `default: active`
 
+## Access Rights Integration
 
-## Integrasi Hak Akses
-
-Data yang diinputkan di menu Manage User akan otomatis digunakan untuk pengaturan hak akses user di sistem integrasi.
+Data inputted in the Manage User menu will automatically be used for user access rights configuration in the integration system.
 
 :::tip Best Practice
-Disarankan untuk menginput data user sesuai dengan data asli dan kebutuhan operasional.
+It is recommended to input user data according to actual data and operational needs.
 :::

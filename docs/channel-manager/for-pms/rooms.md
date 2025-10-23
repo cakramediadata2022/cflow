@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Rooms
 
-Menu **Rooms** adalah pusat pengelolaan tipe kamar dan rate plan yang berasal dari PMS. Data yang diinputkan di sini akan digunakan untuk proses mapping dengan data yang ada di Channel Manager (CM), sehingga integrasi berjalan lancar dan konsisten.
+The **Rooms** menu is the center for managing room types and rate plans from PMS. Data inputted here will be used for the mapping process with data in Channel Manager (CM), so integration runs smoothly and consistently.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,25 +23,25 @@ import TabItem from '@theme/TabItem';
 />
 </div>
 
-## Mengapa Menu Rooms Penting?
+## Why is the Rooms Menu Important?
 
-Menu ini menjadi fondasi utama integrasi PMS dan CM karena:
+This menu becomes the main foundation for PMS and CM integration because:
 
-- **Dasar Mapping**: Semua data room type dan rate plan PMS yang diinputkan akan otomatis tersedia untuk proses mapping ke CM
-- **CRUD Data PMS**: Anda dapat membuat, mengedit, dan menghapus data PMS sesuai kebutuhan
-- **Konsistensi Data**: Memastikan data kamar dan rate plan PMS selalu sinkron dengan CM
-- **Fleksibilitas**: Data dapat disesuaikan dengan kebutuhan operasional hotel
+- **Mapping Base**: All PMS room type and rate plan data inputted will automatically be available for the mapping process to CM
+- **PMS Data CRUD**: You can create, edit, and delete PMS data as needed
+- **Data Consistency**: Ensures PMS room and rate plan data is always synchronized with CM
+- **Flexibility**: Data can be adjusted according to hotel operational needs
 
-## Pengelolaan Data Rooms
+## Rooms Data Management
 
 <Tabs className="unique-tabs">
 	<TabItem value="create" label="Create" default>
-		Untuk membuat data room type dan rate plan baru:
+		To create new room type and rate plan data:
     
-		1. Klik tombol **"+ Create"** di pojok kanan atas.
-		2. Isi form dengan data PMS yang diperlukan.
-		3. **Field dengan label merah wajib diisi** - pastikan tidak ada yang terlewat.
-		4. Simpan, dan data akan otomatis tersedia pada list dan pada menu mapping.
+		1. Click the **"+ Create"** button in the top right corner.
+		2. Fill the form with required PMS data.
+		3. **Fields with red labels are mandatory** - make sure nothing is missed.
+		4. Save, and data will automatically be available in the list and in the mapping menu.
     
 		<img
 			src="/img/cm/rooms-pms/rooms-form.png"
@@ -52,16 +52,16 @@ Menu ini menjadi fondasi utama integrasi PMS dan CM karena:
 				boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
 			}}
 		/>
-		:::warning Field Wajib
-		Pastikan semua field dengan **label merah** telah diisi dengan benar sebelum menyimpan data.
-		:::
+        :::warning Required Fields
+        Make sure all fields with **red labels** are filled in correctly before saving the data.
+        :::
 	</TabItem>
 	<TabItem value="edit" label="Edit">
-		Untuk mengedit data yang sudah ada:
+		To edit existing data:
     
-		- Klik tombol **Edit** pada baris data yang ingin diubah.
-		- Ubah data sesuai kebutuhan (field merah tetap wajib diisi).
-		- Simpan perubahan, data akan terupdate di mapping dan sistem terkait.
+		- Click the **Edit** button on the row you want to change.
+		- Update the data as needed (red fields are still required).
+		- Save changes, and the data will be updated in the mapping and related systems.
     
 		<img
 			src="/img/cm/rooms-pms/rooms-edit.png"
@@ -73,15 +73,15 @@ Menu ini menjadi fondasi utama integrasi PMS dan CM karena:
 			}}
 		/>
 		:::info Auto-Update
-		Perubahan data akan otomatis tersinkron ke menu Mapping dan sistem yang terhubung.
+		Data changes will be automatically synchronized to the Mapping menu and connected systems.
 		:::
 	</TabItem>
 	<TabItem value="delete" label="Remove">
-		Untuk menghapus data:
+		To delete data:
     
-		- Klik tombol **Remove** pada baris data yang akan dihapus.
-		- Konfirmasi penghapusan melalui dialog yang muncul.
-		- Data akan dihapus dari sistem dan tidak lagi tersedia untuk mapping.
+		- Click the **Remove** button on the row you want to delete.
+		- Confirm deletion through the dialog that appears.
+		- Data will be deleted from the system and will no longer be available for mapping.
     
 		<img
 			src="/img/cm/rooms-pms/rooms-remove.png"
@@ -92,38 +92,40 @@ Menu ini menjadi fondasi utama integrasi PMS dan CM karena:
 				boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
 			}}
 		/>
-		:::danger Peringatan
-		Penghapusan data akan menghapus semua mapping terkait. Pastikan tidak ada booking aktif sebelum menghapus.
+		:::danger Warning
+		Deleting data will remove all related mappings. Make sure there are no active bookings before deleting.
 		:::
 	</TabItem>
 </Tabs>
 
 ## Detail Form Input Data Rooms
 
-### Field Wajib (Label Merah)
+### Required Fields (Red Label)
 
-- **Room Type Code**: Kode unik dari PMS `required`
-- **Room Type Name**: Nama tipe kamar PMS `required`
-- **Rate Plan Code**: Kode rate plan PMS `required`
-- **Rate Plan Name**: Nama rate plan PMS `required`
-- **Room Occupancy**: Jumlah kamar yang menggunakan rate ini `required`
+- **Room Type Code**: Unique code from PMS `required`
+- **Room Type Name**: PMS room type name `required`
+- **Rate Plan Code**: PMS rate plan code `required`
+- **Rate Plan Name**: PMS rate plan name `required`
+- **Room Occupancy**: Number of rooms using this rate `required`
 
-:::info Penulisan room type code
- jika pihak hotel ingin menjual kamar berdasarkan bed type, penulisan room type berisi tanda pagar (#),
- ini berfungsi memisahkan antara room type dan bed type.
+:::info Room Type Code Format
+If the hotel wants to sell rooms based on bed type, the room type code should contain a hash (#) symbol,
+which serves to separate the room type and bed type.
 
-#### Contoh data pms: 
- - Room Type → Standard Room `(STD)`
- - Bed Type → Twin Bed `(TWN)`
+#### Example PMS data:
 
-#### Format yang valid → room_type_code#bed_type_code
- - Maka untuk Room Type Code di menu Rooms menjadi → `STD#TWN`
-:::
+- Room Type → Standard Room `(STD)`
+- Bed Type → Twin Bed `(TWN)`
 
-## Integrasi dengan CM
+#### Valid format → room_type_code#bed_type_code
 
-Data yang diinputkan di menu Rooms akan otomatis tersedia pada menu mapping. Pastikan data PMS yang diinput sudah benar agar proses integrasi berjalan lancar.
+- So for Room Type Code in the Rooms menu, it becomes → `STD#TWN`
+  :::
+
+## Integration with CM
+
+Data entered in the Rooms menu will automatically be available in the mapping menu. Make sure the PMS data entered is correct so the integration process runs smoothly.
 
 :::tip Best Practice
-Disarankan untuk menginput data PMS sesuai dengan data asli (_Harus sama dengan yang ada di pms_).
+It is recommended to input PMS data according to the original data (_Must match what is in the PMS_).
 :::

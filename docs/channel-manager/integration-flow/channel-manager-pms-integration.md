@@ -1,49 +1,49 @@
 ---
-title: Integrasi Channel Manager - PMS - Service
+title: Channel Manager - PMS - Service Integration
 slug: /channel-manager/integration/cm-pms-service
-sidebar_label: Integrasi CM-PMS-Service
-description: Panduan lengkap integrasi Channel Manager dengan Property Management System melalui Service layer dengan diagram alur dan checklist validasi.
+sidebar_label: CM-PMS-Service Integration
+description: Complete guide for Channel Manager integration with Property Management System through Service layer with flow diagrams and validation checklists.
 sidebar_position: 1
 ---
 
-# Integrasi Channel Manager - PMS - Service
+# Channel Manager - PMS - Service Integration
 
-## Ringkasan Singkat
+## Brief Summary
 
-Dokumentasi ini menjelaskan alur lengkap integrasi antara **Channel Manager (CM)**, **Property Management System (PMS)**, dan **Service** sebagai middleware. Integrasi ini memungkinkan sinkronisasi real-time data property, room type, rate plan, inventory, dan booking antara sistem internal hotel dengan berbagai Online Travel Agent (OTA).
+This documentation explains the complete integration flow between **Channel Manager (CM)**, **Property Management System (PMS)**, and **Service** as middleware. This integration enables real-time synchronization of property data, room types, rate plans, inventory, and bookings between hotel internal systems and various Online Travel Agents (OTAs).
 
-**Tujuan Integrasi:**
+**Integration Objectives:**
 
-- Sinkronisasi data property, room, rate, dan inventory secara otomatis
-- Centralized booking management dari multiple OTA
-- Real-time availability dan pricing update
-- Streamlined operation workflow antara CM dan PMS
+- Automatic synchronization of property, room, rate, and inventory data
+- Centralized booking management from multiple OTAs
+- Real-time availability and pricing updates
+- Streamlined operation workflow between CM and PMS
 
 ---
 
-## Diagram Alur Integrasi
+## Integration Flow Diagrams
 
 ### 1. High-Level Flowchart
 
 ```mermaid
-flowchart LR
-    A[1. Buat Property di CM] --> B[2. Buat PMS Connectivity]
-    B --> C[3. Konfigurasi PMS Setting]
-    C --> D[4. Sinkronisasi Room & Rate]
-    D --> E[5. Daftarkan di Service]
-    E --> F[6. Service Hubungkan CM ↔ PMS]
-    F --> G[7. Testing & Go Live]
+flowchart TD
+  A[1. Create Property in CM] --> B[2. Create PMS Connectivity]
+  B --> C[3. Configure PMS Settings]
+  C --> D[4. Synchronize Room & Rate]
+  D --> E[5. Register in Service]
+  E --> F[6. Service Connect CM ↔ PMS]
+  F --> G[7. Testing & Go Live]
 
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#fff3e0
-    style D fill:#e8f5e8
-    style E fill:#fce4ec
-    style F fill:#f1f8e9
-    style G fill:#e0f2f1
+  style A fill:#e1f5fe
+  style B fill:#f3e5f5
+  style C fill:#fff3e0
+  style D fill:#e8f5e8
+  style E fill:#fce4ec
+  style F fill:#f1f8e9
+  style G fill:#e0f2f1
 ```
 
-### 2. Swimlane Diagram dengan Aktor
+### 2. Swimlane Diagram with Actors
 
 ```mermaid
 flowchart TD
@@ -56,7 +56,7 @@ flowchart TD
 
     subgraph "PMS System"
         B1[Setup CM Connection]
-        B2[Setup Room Rate di config]
+        B2[Setup Room Rate in config]
         B3[Sync Availability & Rate]
     end
 
@@ -75,44 +75,41 @@ flowchart TD
     C1 --> C2
     C2 --> C3
     C3 --> B3
-
-
 ```
 
-### 3. Standard flow integration
+### 3. Standard Integration Flow
 
 ```mermaid
 classDiagram
 
     class Cakrahub{
-        1. Tambahkan/Create property.
-        2. Lengkapi seluruh menu : 
-           room type, rate plan, channel, rooms, mapping, dll.
-        3. Tambahkan data property pada menu PMS Connectivity.
+        1. Add/Create property.
+        2. Complete all menus:
+           room type, rate plan, channel, rooms, mapping, etc.
+        3. Add property data in PMS Connectivity menu.
     }
 
     class PMS{
-        1. Masuk ke setting -> channel manager.
-        2. Lengkapi seluruh form dan sesuaikan 
-           dengan permintaan hotelnya.
-        3. Masuk ke menu room rate yang ada 
-        diconfig → pilih room rate atau buat 
-        baru → lengkapi data-data yang diperlukan.
+        1. Go to settings → channel manager.
+        2. Complete all forms and adjust
+           according to hotel requirements.
+        3. Go to room rate menu in
+        config → select room rate or create
+        new → complete required data.
         ------------------------------------------------------------
-        Catatan:
-        1. Untuk hotel id di isi dengan hotel code nya channel manager
-        2. Jika di CM, PMS dan Service sudah selesai, bisa lakukan 
-        _**Sync Rate**_ → ada di menu room rate → post to cm.
-         **_Sync availability_** → ada pada menu room type availability
+        Notes:
+        1. For hotel id, fill with channel manager hotel code
+        2. If CM, PMS and Service are complete, you can do
+        _**Sync Rate**_ → available in room rate menu → post to cm.
+         **_Sync availability_** → available in room type availability menu
     }
     class Service{
-        1. daftarkan property pada service
+        1. register property in service
 ----------------------------------------------------------------------------------------
-        Catatan: service berperan sebagai jembatan antara PMS dengan CM, 
-        jadi jika ingin data terintegrasi automatis, seperti pengiriman availabilitiy
-        daftarkan terlebih dahulu property pada service
+        Notes: service acts as a bridge between PMS and CM,
+        so if you want data to be automatically integrated, such as sending availability
+        register the property in service first
     }
-
 
     Cakrahub --|> Service
     PMS --|> Service
@@ -120,19 +117,19 @@ classDiagram
 
 ---
 
-## Langkah-Langkah Detil Integrasi
+## Detailed Integration Steps
 
 ### 1. Channel Manager (CM) - Setup Property & Connectivity
 
-#### Langkah A: Setup PMS Connectivity
+#### Step A: Setup PMS Connectivity
 
-1. **Login ke Channel Manager** → Menu PMS Connectivity → Create New Connection
-2. **Isi Field Wajib:**
-   - `Hotel Code`: Pilih property yang akan di integrasikan (misal: "Hotel ABC - PMS Cakra") _(akan digunakan Service)_
-   - `username`: Username untuk akses CM _(akan digunakan Service)_
-   - `password`: Password untuk akses CM _(akan digunakan Service)_
+1. **Login to Channel Manager** → Menu PMS Connectivity → Create New Connection
+2. **Fill Mandatory Fields:**
+   - `Hotel Code`: Select property to be integrated (e.g.: "Hotel ABC - PMS Cakra") _(will be used by Service)_
+   - `username`: Username for CM access _(will be used by Service)_
+   - `password`: Password for CM access _(will be used by Service)_
 
-**Contoh Data:**
+**Example Data:**
 
 ```
 hotel_code : CM_HTL_001
@@ -143,49 +140,49 @@ password: P@ssw0rd123!
 
 ---
 
-### 2. PMS System - Konfigurasi Channel Manager
+### 2. PMS System - Channel Manager Configuration
 
-#### Langkah A: Setting Koneksi CM
+#### Step A: CM Connection Settings
 
-1. **Login PMS** → Setting → Channel Manager
-2. **Isi Kredensial dari CM:**
-   - Username: `hotel_grand_api` _(dari CM → PMS Connectivity)_
-   - Password: `P@ssw0rd123!` _(dari CM → PMS Connectivity)_
-   - Hotel ID: `CM_HTL_001` _(dari CM → PMS Connectivity)_
-   - WSDL/Endpoint: `[URL dari CM]`
+1. **Login PMS** → Settings → Channel Manager
+2. **Fill Credentials from CM:**
+   - Username: `hotel_grand_api` _(from CM → PMS Connectivity)_
+   - Password: `P@ssw0rd123!` _(from CM → PMS Connectivity)_
+   - Hotel ID: `CM_HTL_001` _(from CM → PMS Connectivity)_
+   - WSDL/Endpoint: `[URL from CM]`
 
-#### Langkah B: Sinkronisasi Room & Rate
+#### Step B: Room & Rate Synchronization
 
 1. **Menu Room & Rate Sync** → Setup Mapping
-2. **Untuk setiap Room Rate, isi:**
-   - **Inv Code**: Kode inventory internal PMS (misal: `STD`, `DLX`, `STE`) jika menggunakan bed type        **Inv Code** menjadi (`STD#DBL`, `DLX#SGL`, `STE#TWN`)
-   - **Room Type Code**: ⚠️ **WAJIB UNIK** - hanya 1 kode per mapping
-   - **Dynamic Rate**: Pilih opsi rate yang akan disinkron
-     - `Base Occ`: Rate berdasarkan okupansi
-     - `Base Session`: Rate berdasarkan session
-   - **Start Date**: Tanggal mulai rate di aktifkan (format: YYYY-MM-DD)
-   - **End Date**: Tanggal akhir rate dimatikan (format: YYYY-MM-DD)
-   - **Online**: Type Checkbox, jangan lupa di centang
+2. **For each Room Rate, fill:**
+   - **Inv Code**: PMS internal inventory code (e.g.: `STD`, `DLX`, `STE`) if using bed type **Inv Code** becomes (`STD#DBL`, `DLX#SGL`, `STE#TWN`)
+   - **Room Type Code**: ⚠️ **MUST BE UNIQUE** - only 1 code per mapping
+   - **Dynamic Rate**: Select rate option to be synchronized
+     - `Base Occ`: Rate based on occupancy
+     - `Base Session`: Rate based on session
+   - **Start Date**: Rate activation start date (format: YYYY-MM-DD)
+   - **End Date**: Rate deactivation end date (format: YYYY-MM-DD)
+   - **Online**: Checkbox type, don't forget to check
 3. **Room Type:**
-    - _tidak ada yang perlu di tambahkan disini, untuk room type akan mengikuti data dari pms_
+   - _nothing needs to be added here, room type will follow PMS data_
 
-**Contoh Mapping:**
+**Example Mapping:**
 
 ```
 Room Type Name: Standard Room
 inv_code: STD
-room_type_code: STD001  // ⚠️ Harus unik, jangan duplikasi!
+room_type_code: STD001  // ⚠️ Must be unique, no duplication!
 dynamic_rate: Base Sessions
 start_date: 2024-01-01
 end_date: 2024-12-31
 ```
 
-#### ⚠️ Validasi Wajib:
+#### ⚠️ Mandatory Validation:
 
-- `room_type_code` harus **TUNGGAL** per mapping (tidak boleh multiple)
+- `room_type_code` must be **SINGULAR** per mapping (no multiple allowed)
 - `start_date` `<=` `end_date`
-- Timezone harus konsisten dengan CM
-- Pastikan semua room type yang akan dijual online sudah dimapping // ⚠️**_ini dilakukan di channel manager_**
+- Timezone must be consistent with CM
+- Make sure all room types to be sold online are mapped // ⚠️**_this is done in channel manager_**
 
 ---
 
@@ -193,123 +190,130 @@ end_date: 2024-12-31
 
 #### Langkah Developer: Register Property ke Service
 
-1. **Akses Service Admin Panel** atau API endpoint
-2. **Daftarkan Property Baru:**
+1. **Access the Service Admin Panel** or API endpoint
+2. **Register a New Property:**
    ```bash
    POST http://exp_lane/properties
    {
      "hotel_id": "CM_HTL_001",
-     "hotel_code": "[KODE_DARI_PMS]",  // TODO: Ambil dari PMS
-     "unit_code": "[KODE_DARI_PMS]",  // TODO: Ambil dari PMS → bisa string kosong
-     "hotel_name": "[BEBAS]",  // TODO: Bisa ambil dari pms atau dari CM
-     "username": "hotel_grand_api",      // Dari CM → PMS Connectivity
-     "password": "P@ssw0rd123!",         // Dari CM → PMS Connectivity
+     "hotel_code": "[CODE_FROM_PMS]",  // TODO: Get from PMS
+     "unit_code": "[CODE_FROM_PMS]",  // TODO: Get from PMS → can be an empty string
+     "hotel_name": "[ANY]",  // TODO: Can get from PMS or CM
+     "username": "hotel_grand_api",      // From CM → PMS Connectivity
+     "password": "P@ssw0rd123!",         // From CM → PMS Connectivity
      "WSDL": "http://exp_lane/cakra",
-     "vendor": "CKHU", // Dari PMS
+     "vendor": "CKHU", // From PMS
      "type_code": "CM", // Default CM
      "is_active": 1, // Default 1
-     "interval": 20, // Berapa detik request di jalankan, set ke 20 detik untuk interval terbaiknya
+     "interval": 20, // How many seconds the request runs, set to 20 seconds for best interval
    }
    ```
 
-#### Mapping Data yang Diperlukan:
+#### Required Data Mapping:
 
-- **Dari CM PMS Connectivity:**
+- **From CM PMS Connectivity:**
+
   - `username` → Service `username`
   - `password` → Service `password`
   - `hotel_code` → Service `hotel_id`
   - `CM Endpoint` → Service `WSDL`
 
-- **Dari PMS:**
+- **From PMS:**
   - Hotel Code → Service `hotel_code`
-  - Unit Code → Service `unit_code` → bisa string kosong
+  - Unit Code → Service `unit_code` → can be an empty string
 
 #### Sync Avail & Rate
-_jika sudah terdaftar di cm, service dan pms, sync avail dan rate dapat dilakukan dengan cara:_
-- **Sync Avail**
-    - Login Ke PMS → Room Type Availability
-    - Klik button `Sync Availability`
-    - Pilih Room Type yang akan di sync kan
-    - Pilih Start Date dan End Date // Beerfungsi untuk mengirim Availability dari tanggal berapa sampai tanggal berapa Availability mau dikirimkan(misal: `11-10-2025` sampai `11-10-2026`) maka Avail yang dikirim ke cm dari tanggla `11-10-2025` sampai ``11-10-2026``
+
+_Once registered in CM, Service, and PMS, sync availability and rate can be performed as follows:_
+
+- **Sync Availability**
+  - Login to PMS → Room Type Availability
+  - Click the `Sync Availability` button
+  - Select the Room Type to be synced
+  - Select Start Date and End Date // Used to send Availability for the desired date range (e.g.: `11-10-2025` to `11-10-2026`), so the availability sent to CM will be from `11-10-2025` to `11-10-2026`
 
 #### Tugas Teknis Developer:
 
-- **Enkripsi Kredensial:** Simpan username/password
-- **Retry Logic:** Implementasi retry untuk API call yang gagal
-- **Logging:** Log semua aktivitas sinkronisasi
-- **Monitoring:** Setup alert untuk connection failure
+#### Developer Technical Tasks:
+
+- **Credential Encryption:** Store username/password securely
+- **Retry Logic:** Implement retry for failed API calls
+- **Logging:** Log all synchronization activities
+- **Monitoring:** Set up alerts for connection failures
 
 ---
 
 ## Checklist Validasi Pre Go-Live
 
+## Pre Go-Live Validation Checklist
+
 ### ☐ Channel Manager Validation
 
-- [ ] Property data lengkap dan valid
-- [ ] PMS Connectivity tersimpan dengan benar
-- [ ] Username/password dapat diakses Service
-- [ ] Hotel ID unik dan konsisten
-- [ ] Room Rate dan Room Type sudah termapping
+- [ ] Property data is complete and valid
+- [ ] PMS Connectivity is properly saved
+- [ ] Username/password can be accessed by Service
+- [ ] Hotel ID is unique and consistent
+- [ ] Room Rate and Room Type are mapped
 
 ### ☐ PMS System Validation
 
-- [ ] Koneksi CM berhasil established
-- [ ] Room type mapping komplet (semua room type yang dijual)
-- [ ] Rate mapping sesuai strategi pricing
-- [ ] Date range valid (start_date `<=` end_date)
-- [ ] Dynamic rate option sudah dipilih
+- [ ] CM connection successfully established
+- [ ] Room type mapping is complete (all room types being sold)
+- [ ] Rate mapping matches pricing strategy
+- [ ] Date range is valid (start_date `<=` end_date)
+- [ ] Dynamic rate option is selected
 
 ### ☐ Service Integration Validation
 
-- [ ] Property terdaftar di Service database
-- [ ] CM credentials tersimpan
-- [ ] CM endpoint dapat diakses
-- [ ] Retry logic dan error handling aktif
-- [ ] Monitoring dan logging berjalan
-- [ ] Test sync CM → Service → PMS berhasil
+- [ ] Property is registered in Service database
+- [ ] CM credentials are stored
+- [ ] CM endpoint is accessible
+- [ ] Retry logic and error handling are active
+- [ ] Monitoring and logging are running
+- [ ] Test sync CM → Service → PMS is successful
 
 ### ☐ End-to-End Testing
 
-- [ ] Test create/update inventory dari PMS → CM
+- [ ] Test create/update inventory from PMS → CM
 - [ ] Test booking notification CM → PMS
 - [ ] Test rate update PMS → OTA (via CM)
-- [ ] Test availability update real-time
+- [ ] Test real-time availability update
 - [ ] Verify timezone consistency
-- [ ] Load testing untuk high-volume sync
+- [ ] Load testing for high-volume sync
 
 ---
 
-## Template Komunikasi untuk Developer
+## Communication Template for Defvelopers
 
 ### Email Template: Request Property Registration
 
 ```
-Subject: [URGENT] Registrasi Property Baru ke Service - Hotel [NAMA]
+Subject: [URGENT] New Property Registration to Service - Hotel [NAME]
 
-Hi Tim Developer,
+Hi Developer Team,
 
-Mohon bantuan untuk mendaftarkan property baru ke Service dengan data berikut:
+Please help to register a new property to the Service with the following data:
 
 **Property Information:**
-- Hotel Name: [NAMA_HOTEL]
-- Hotel Code (PMS): [HOTEL_CODE]  // TODO: Koordinasi dengan PMS team
+- Hotel Name: [HOTEL_NAME]
+- Hotel Code (PMS): [HOTEL_CODE]  // TODO: Coordinate with PMS team
 
 **CM PMS Connectivity Data:**
 - Username: [USERNAME_FROM_CM]
-- Password: [PASSWORD_FROM_CM]  // Akan dishare via secure channel
+- Password: [PASSWORD_FROM_CM]  // Will be shared via secure channel
 - Hotel ID: [HOTEL_CODE]
 - WSDL/Endpoint: [ENDPOINT_URL]
 - Vendor: [VENDOR_CM] // Cakrahub
 
 **Request:**
-1. Tambahkan property ke Service database
+1. Add property to Service database
 2. Setup credential mapping (CM ↔ PMS)
 3. Enable sync service
-4. Lakukan testing end-to-end
+4. Perform end-to-end testing
 
-**Timeline:** Go-live target: [TANGGAL_TARGET]
+**Timeline:** Go-live target: [TARGET_DATE]
 
-Please confirm receipt dan estimasi completion time.
+Please confirm receipt and estimated completion time.
 
 Thanks,
 [EXP_LANE CAKRA]
@@ -317,18 +321,18 @@ Thanks,
 
 ---
 
-## Catatan Teknis & Best Practices
+## Technical Notes & Best Practices
 
 ### Security
 
-- **API Access:** Gunakan HTTPS untuk semua komunikasi antar service
-- **API Key:** Simpan api key dengan aman untuk memudahkan anda mengelola kedepannya
-- **Audit Trail:** Log semua perubahan data untuk audit
+- **API Access:** Use HTTPS for all communication between services
+- **API Key:** Store API keys securely to make future management easier
+- **Audit Trail:** Log all data changes for auditing
 
 ### Error Handling
 
-- **Cek Log:** Setiap komunikasi antara cm dan pms, log aliran data nya sudah tercatat di dalam service, anda bisa melakukan tracking data disini untuk menemukan error nya dimana
+- **Check Logs:** Every communication between CM and PMS, the data flow log is recorded in the service. You can track data here to find where the error occurred
 
 ---
 
-**💡 Tips:** Selalu lakukan testing di staging environment sebelum production deployment. Koordinasikan dengan semua stakeholder (Hotel Ops, PMS Team, Developer) untuk memastikan integrasi berjalan smooth.   
+**💡 Tips:** Always perform testing in the staging environment before production deployment. Coordinate with all stakeholders (Hotel Ops, PMS Team, Developer) to ensure smooth integration.

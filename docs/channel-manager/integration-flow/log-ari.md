@@ -6,7 +6,7 @@ sidebar_position: 7
 
 # Log ARI
 
-Menu **Log ARI** digunakan untuk memantau status pengiriman data ARI (Availability, Rate, Inventory) dari PMS ke Channel Manager. Dengan menu ini, Anda dapat melihat apakah data ARI berhasil, atau gagal, sehingga proses monitoring integrasi menjadi lebih transparan dan mudah dipantau.
+The **Log ARI** menu is used to monitor the status of ARI (Availability, Rate, Inventory) data transmission from PMS to Channel Manager. With this menu, you can see whether ARI data was successful or failed, making the integration monitoring process more transparent and easy to monitor.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,21 +23,21 @@ import TabItem from '@theme/TabItem';
 />
 </div>
 
-## Mengapa Menu Log ARI Penting?
+## Why is the Log ARI Menu Important?
 
-- **Monitoring Real-Time**: Melihat status pengiriman data ARI ke CM secara langsung
-- **Transparansi Proses**: Mengetahui detail data ARI yang berhasil, atau gagal
-- **Troubleshooting**: Memudahkan identifikasi masalah integrasi ARI
+- **Real-Time Monitoring**: View ARI data transmission status to CM directly
+- **Process Transparency**: Know details of ARI data that succeeded or failed
+- **Troubleshooting**: Facilitate identification of ARI integration issues
 
-## Pengelolaan Log ARI
+## Log ARI Management
 
 <Tabs className="unique-tabs">
   <TabItem value="view" label="View Log" default>
-    Untuk melihat detail log ARI yang dikirim PMS:
+    To view details of ARI logs sent by PMS:
     
-    1. Buka menu Log ARI.
-    2. Pilih data yang mau dilihat dan klik icon `mata`
-    3. Anda bisa lihat format `JSON` yang dikirim oleh PMS.
+    1. Open the Log ARI menu.
+    2. Select the data you want to view and click the `eye` icon.
+    3. You can see the `JSON` format sent by PMS.
     
     <div style={{marginBottom: '1.5rem'}}>
         <img
@@ -50,25 +50,25 @@ import TabItem from '@theme/TabItem';
             }}
         />
     </div>
-    :::info Status ARI
-    Status data ARI akan ditampilkan secara real-time sesuai hasil pengiriman ke PMS. selalu cek detail data yang dikirim oleh PMS untuk memudahkan tracking masalahnya.
+    :::info ARI Status
+    ARI data status will be displayed in real-time according to transmission results to PMS. Always check the details of data sent by PMS to facilitate tracking issues.
     :::
   </TabItem>
 </Tabs>
 
-## Detail Log ARI
+## Log ARI Details
 
-- **PMS ID**: ID internal yang ada di PMS.
-- **Status**: Status data yang dikirim PMS (success, failed).
-- **Room Type Code**: Code room type.
-- **Rate Plan Code**: Code rate plan.
-- **CM Message**: Pesan yang dikembalikan oleh CM.
-- **Action**: Untuk melihat detail `JSON` data yang dikirimkan PMS.
+- **PMS ID**: Internal ID that exists in PMS.
+- **Status**: Status of data sent by PMS (success, failed).
+- **Room Type Code**: Room type code.
+- **Rate Plan Code**: Rate plan code.
+- **CM Message**: Message returned by CM.
+- **Action**: To view detailed `JSON` data sent by PMS.
 
-## Integrasi dengan PMS
+## PMS Integration
 
-Menu Log ARI sangat penting untuk memastikan semua data ARI yang dikirim ke PMS tercatat dan dapat dipantau statusnya. Jika terjadi masalah, Anda dapat langsung melakukan troubleshooting berdasarkan log yang tersedia.
+The Log ARI menu is very important to ensure all ARI data sent to PMS is recorded and its status can be monitored. If problems occur, you can directly troubleshoot based on available logs.
 
 :::tip Best Practice
-Selalu cek Log ARI secara berkala untuk memastikan integrasi data ARI berjalan lancar dan tidak ada data yang gagal.
+Always check Log ARI regularly to ensure ARI data integration runs smoothly and no data fails.
 :::

@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # Configuration
 
-Menu **Configuration** adalah menu tambahan, anda bisa melakukan update availability dan rate disini menggunakan data dari exel.
+The **Configuration** menu is an additional menu where you can update availability and rates here using data from Excel.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -21,12 +21,12 @@ import TabItem from '@theme/TabItem';
     />
 </div>
 
-## Cara Penggunaan
+## How to Use
 
-1. Klik import exel `ARI`.
-2. Ketika muncul form `select` file, anda bisa memilih file exel yang sudah anda isi sebelumnya, untuk format exet anda bisa unduh file exel nya pada text _`download import form`_.
-3. Setelah file berhasil anda pilih/select, bisa langsung klik updload, maka data `ARI`(rate dan availability) akan automais terupdate pada menu inventory.
+1. Click import Excel `ARI`.
+2. When the `select` file form appears, you can choose the Excel file that you have filled in before. For the Excel format, you can download the Excel file from the _`download import form`_ text.
+3. After the file has been successfully selected, you can directly click upload, then the `ARI` data (rate and availability) will be automatically updated in the inventory menu.
 
 :::tip Best Practice
-Disarankan untuk menggunakan fitur ini ketika anda lebih sering menggunakan exel untuk mencatat `ARI`, alangkah baiknya tetap melakukan update `ARI` melalui menu inventory, namun jika terhubung dengan PMS, lebih baik update `ARI` hanya dilakukan di PMS
+It is recommended to use this feature when you more often use Excel to record `ARI`. It would be better to still update `ARI` through the inventory menu, but if connected to PMS, it is better to update `ARI` only in the PMS
 :::

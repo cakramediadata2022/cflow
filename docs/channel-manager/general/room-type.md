@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Room Type
 
-Menu **Room Type** adalah pusat pengelolaan tipe kamar yang akan digunakan sebagai dasar untuk inventory management dan distribusi ke berbagai OTA. Setiap room type yang dibuat akan otomatis tersedia di menu Inventory untuk pengelolaan ketersediaan dan harga.
+The **Room Type** menu is the center for managing room types that will be used as the basis for inventory management and distribution to various OTAs. Each room type created will automatically be available in the Inventory menu for availability and price management.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -21,25 +21,25 @@ import TabItem from '@theme/TabItem';
     />
 </div>
 
-## Mengapa Room Type Penting?
+## Why is Room Type Important?
 
-Room Type adalah fondasi utama dalam channel management karena:
+Room Type is the main foundation in channel management because:
 
-- **Dasar Inventory**: Setiap room type yang dibuat akan otomatis muncul di menu Inventory
-- **Mapping OTA**: Memudahkan mapping tipe kamar antara PMS dan berbagai OTA
-- **Konsistensi Data**: Memastikan nama dan kategori kamar konsisten di semua channel
-- **Fleksibilitas**: Data boleh sama dengan PMS atau dibedakan sesuai kebutuhan
+- **Inventory Base**: Every room type created will automatically appear in the Inventory menu
+- **OTA Mapping**: Facilitates room type mapping between PMS and various OTAs
+- **Data Consistency**: Ensures room names and categories are consistent across all channels
+- **Flexibility**: Data can be the same as PMS or differentiated as needed
 
-## Pengelolaan Room Type
+## Room Type Management
 
 <Tabs className="unique-tabs">
   <TabItem value="create" label="Create" default>
-    Untuk membuat room type baru:
+    To create a new room type:
     
-    1. Klik tombol **"+ Create"** di pojok kanan atas.
-    2. Isi form dengan data yang diperlukan.
-    3. **Field dengan label merah wajib diisi** - pastikan tidak ada yang terlewat.
-    4. Simpan, dan room type akan otomatis tersedia di Inventory.
+    1. Click the **"+ Create"** button in the top right corner.
+    2. Fill in the form with the required data.
+    3. **Fields with red labels are mandatory** - make sure nothing is missed.
+    4. Save, and the room type will automatically be available in Inventory.
     
     <img
       src="/img/cm/room-type/room-form.png"
@@ -48,18 +48,18 @@ Room Type adalah fondasi utama dalam channel management karena:
         borderRadius: "8px",
         marginTop: "1rem",
         boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-      }}P
+      }}
     />
-    :::warning Field Wajib
-    Pastikan semua field dengan **label merah** telah diisi dengan benar sebelum menyimpan room type.
+    :::warning Mandatory Fields
+    Make sure all fields with **red labels** have been filled correctly before saving the room type.
     :::
   </TabItem>
   <TabItem value="edit" label="Edit">
-    Untuk mengedit room type yang sudah ada:
+    To edit an existing room type:
     
-    - Klik tombol **Edit** pada baris room type yang ingin diubah.
-    - Ubah data sesuai kebutuhan (field merah tetap wajib diisi).
-    - Simpan perubahan, data akan terupdate di semua channel terkait.
+    - Click the **Edit** button on the room type row you want to change.
+    - Change data as needed (red fields remain mandatory).
+    - Save changes, data will be updated in all related channels.
     
     <img
       src="/img/cm/room-type/room-edit.png"
@@ -68,19 +68,19 @@ Room Type adalah fondasi utama dalam channel management karena:
         borderRadius: "8px",
         marginTop: "1rem",
         boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-      }}P
+      }}
     />
     
     :::info Auto-Update
-    Perubahan room type akan otomatis tersinkron ke menu Inventory dan semua channel yang sudah terhubung.
+    Room type changes will automatically sync to the Inventory menu and all connected channels.
     :::
   </TabItem>
   <TabItem value="delete" label="Remove">
-    Untuk menghapus room type:
+    To delete a room type:
     
-    - Klik tombol **Remove** pada baris room type yang akan dihapus.
-    - Konfirmasi penghapusan melalui dialog yang muncul.
-    - Room type akan dihapus dari sistem dan tidak lagi tersedia di Inventory.
+    - Click the **Remove** button on the room type row to be deleted.
+    - Confirm deletion through the dialog that appears.
+    - Room type will be deleted from the system and no longer available in Inventory.
     
     <img
       src="/img/cm/room-type/room-remove.png"
@@ -89,39 +89,38 @@ Room Type adalah fondasi utama dalam channel management karena:
         borderRadius: "8px",
         marginTop: "1rem",
         boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-      }}P
+      }}
     />
     
-    :::danger Peringatan
-    Penghapusan room type akan menghapus semua data inventory terkait. Pastikan tidak ada booking aktif sebelum menghapus.
+    :::danger Warning
+    Deleting a room type will delete all related inventory data. Make sure there are no active bookings before deleting.
     :::
   </TabItem>
 </Tabs>
 
-## Detail Form Input Room Type
+## Room Type Input Form Details
 
-### Field Wajib (Label Merah)
+### Mandatory Fields (Red Label)
 
-- **Room Type Code**: Kode unik untuk identifikasi internal `required`
-- **Room Type Name**: Nama tipe kamar yang akan ditampilkan di OTA `required`
-
-- **Count of Rooms**: Jumlah kamar yang menggunakan room type tersebut `required`
+- **Room Type Code**: Unique code for internal identification `required`
+- **Room Type Name**: Room type name that will be displayed on OTA `required`
+- **Count of Rooms**: Number of rooms using that room type `required`
 - **Default Occupancy**: How many guests can stay in the room by default (without extra spaces). Keep in mind, this field can not be greater than `occ_adults` value. Typically this value is set equal to amount of adults. `required`
 - **Occupancy Adult**: How many Adult bed spaces have in this Room Type. `required`
 
-### Field Opsional
+### Optional Fields
 
 - **Occupancy Children**: How many Child only bed spaces in this Room Type. Children can sleep in adult beds also. If no Child only beds then set this to 0.
-- **Occupancy Infant**: How many Infants cots available in this Room Type. 
+- **Occupancy Infant**: How many Infants cots available in this Room Type.
 
-## Integrasi dengan PMS
+## PMS Integration
 
-Room Type dapat:
+Room Type can:
 
-- **Sinkron dengan PMS**: Gunakan nama dan data yang sama dengan PMS Anda
-- **Customized**: Buat nama dan kategori yang berbeda untuk kebutuhan marketing
-- **Mapping Fleksibel**: Satu room type PMS bisa di-mapping ke beberapa room type di sistem
+- **Sync with PMS**: Use the same name and data as your PMS
+- **Customized**: Create different names and categories for marketing needs
+- **Flexible Mapping**: One PMS room type can be mapped to multiple room types in the system
 
 :::tip Best Practice
-Disarankan untuk membuat nama room type yang menarik dan mudah dipahami tamu, meskipun berbeda dengan kode internal di PMS.
+It is recommended to create room type names that are attractive and easy for guests to understand, even if different from internal codes in PMS.
 :::

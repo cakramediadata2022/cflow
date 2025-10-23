@@ -6,7 +6,7 @@ sidebar_position: 3
 
 # PMS Log
 
-Menu **PMS Log** digunakan untuk memantau status pengiriman booking dari Channel Manager ke PMS. Dengan menu ini, Anda dapat melihat apakah booking berhasil, pending, atau gagal, sehingga proses monitoring integrasi menjadi lebih transparan dan mudah dipantau.
+The **PMS Log** menu is used to monitor booking transmission status from Channel Manager to PMS. With this menu, you can see whether bookings were successful, pending, or failed, making the integration monitoring process more transparent and easy to monitor.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,44 +23,44 @@ import TabItem from '@theme/TabItem';
 />
 </div>
 
-## Mengapa Menu PMS Log Penting?
+## Why is the PMS Log Menu Important?
 
-- **Monitoring Real-Time**: Melihat status pengiriman booking ke PMS secara langsung
-- **Transparansi Proses**: Mengetahui detail booking yang berhasil, pending, atau gagal
-- **Troubleshooting**: Memudahkan identifikasi masalah integrasi booking
+- **Real-Time Monitoring**: View booking transmission status to PMS directly
+- **Process Transparency**: Know details of bookings that succeeded, are pending, or failed
+- **Troubleshooting**: Facilitate identification of booking integration issues
 
-## Pengelolaan PMS Log
+## PMS Log Management
 
 <Tabs className="unique-tabs">
 	<TabItem value="view" label="View Log" default>
-		Untuk melihat log booking:
+		To view booking logs:
     
-		1. Buka menu PMS Log.
-		2. Pilih filter yang diinginkan.
-		3. Lihat status booking (berhasil, pending, gagal) beserta detailnya.
+		1. Open the PMS Log menu.
+		2. Select desired filters.
+		3. View booking status (successful, pending, failed) along with details.
     
-		:::info Status Booking
-		Status booking akan ditampilkan secara real-time sesuai hasil pengiriman ke PMS.
-		:::
+:::info Booking Status
+		Booking status will be displayed in real-time according to transmission results to PMS.
+:::
 	</TabItem>
 </Tabs>
 
-## Detail Log Booking
+## Booking Log Details
 
-- **Booking ID**: ID booking yang dikirim ke PMS
-- **Booking Date**: Tanggal bookingan di buat
-- **Check-in**: Tanggal tamu masuk
-- **Check-out**: Tanggal tamu keluar
-- **OTA Code**: Code OTA
-- **Status**: Berhasil, pending, atau gagal
-- **Time Add**: Waktu bookingan masuk ke system
-- **Time Notify**: Waktu pengiriman data booking ke pms
-- **Time Confirm**: Waktu pms memberikan confirmasi
+- **Booking ID**: Booking ID sent to PMS
+- **Booking Date**: Date booking was created
+- **Check-in**: Guest check-in date
+- **Check-out**: Guest check-out date
+- **OTA Code**: OTA code
+- **Status**: Success, pending, or failed
+- **Time Add**: Time the booking entered the system
+- **Time Notify**: Time the booking data was sent to PMS
+- **Time Confirm**: Time PMS provided confirmation
 
-## Integrasi dengan PMS
+## Integration with PMS
 
-Menu PMS Log sangat penting untuk memastikan semua booking yang dikirim ke PMS tercatat dan dapat dipantau statusnya. Jika terjadi masalah, Anda dapat langsung melakukan troubleshooting berdasarkan log yang tersedia.
+The PMS Log menu is essential to ensure all bookings sent to PMS are recorded and their status can be monitored. If any issues occur, you can immediately troubleshoot based on the available logs.
 
 :::tip Best Practice
-Selalu cek PMS Log secara berkala untuk memastikan integrasi booking berjalan lancar dan tidak ada booking yang gagal.
+Always check the PMS Log regularly to ensure booking integration runs smoothly and no bookings fail.
 :::

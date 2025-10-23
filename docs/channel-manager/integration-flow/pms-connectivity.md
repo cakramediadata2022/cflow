@@ -37,7 +37,3 @@ import TabItem from '@theme/TabItem';
 - **Hotel Code**: select type, choose which property you want to create a username and password for integration with pms. `required`
 - **Username Name**: adding a username for pms. `required`
 - **Password**: adding a password for pms. `required`
-
-:::info
-
-:::

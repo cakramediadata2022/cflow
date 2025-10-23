@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Inventory
 
-Menu Inventory digunakan untuk mengelola ketersediaan kamar (availability), harga (rates), dan pembatasan (restrictions) secara real-time ke berbagai OTA (Online Travel Agent).
+The Inventory menu is used to manage room availability, rates, and restrictions in real-time to various OTAs (Online Travel Agents).
 
 <div style={{ marginBottom: "1.5rem" }}>
   <img
@@ -18,19 +18,19 @@ Menu Inventory digunakan untuk mengelola ketersediaan kamar (availability), harg
   />
 </div>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-## Fitur & Cara Penggunaan Inventory
+## Inventory Features & Usage
 
 <Tabs className="unique-tabs">
-  <TabItem value="list" label="Lihat Inventory" default>
-    Pada halaman Inventory, Anda dapat melihat seluruh data ketersediaan kamar, harga, dan pembatasan untuk setiap tanggal dan tipe kamar.
+  <TabItem value="list" label="View Inventory" default>
+    On the Inventory page, you can view all room availability data, rates, and restrictions for each date and room type.
     
-    - Tabel menampilkan tanggal, tipe kamar, jumlah tersedia, harga, dan pembatasan (min stay, max stay, dsb).
-    - Gunakan filter harga kamar atau tipe kamar untuk pencarian cepat.
+    - Table displays date, room type, available quantity, rates, and restrictions (min stay, max stay, etc.).
+    - Use room rate or room type filters for quick search.
     
     <img
       src="/img/cm/inv/inv-list.png"
@@ -44,13 +44,13 @@ import "react-image-gallery/styles/css/image-gallery.css";
     
   </TabItem>
   <TabItem value="update" label="Update Inventory">
-    Untuk memperbarui data inventory:
+     To update inventory data:
     
-    - Klik data inventory, bisa di klik rate atau availabilitynya.
-    - Muncul form inputan.
-    - Pilih tanggal dan tipe kamar yang ingin diubah.
-    - Masukkan jumlah ketersediaan, harga, atau pembatasan baru.
-    - Simpan perubahan, data akan langsung tersinkron ke semua OTA.
+     - Click on inventory data, you can click rate or availability.
+     - Input form appears.
+     - Select the date and room type you want to change.
+     - Enter the new availability, price, or restriction.
+     - Save changes, data will be instantly synchronized to all OTAs.
     
     <BrowserOnly fallback={<div>Loading gallery...</div>}>
       {() => {
@@ -96,22 +96,16 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 
     :::info Update Inventory
+      - **Date Range**: You can select from which date the availability or rate will be updated.
+      - **Restriction**: There are restriction options when updating rates such as: close to arrival, close to departure, max stay, min stay, rate, and stop sell, _default **rate**_.
 
-    - **Date Range**: Anda bisa memilih dari tanggla berapa availability atau rate akan di update.  
-    - **Restriction**: ada pilihan restriction pada update rate seperti: close to arrival, close to departure, max stay, min stay, rate dan stop sell, _default **rate**_. 
-
-    **Detail Dari pilihan Restriction :**
-      1. **Close To Arrival**: Membatasi tamu untuk tidak bisa check-in pada tanggal tertentu, tapi tetap bisa menginap jika sudah stay dari hari sebelumnya. **Contoh Kasus**:
-      Jika tanggal 25 Oktober diset CTA = ON, maka tamu tidak bisa mulai menginap pada tanggal 25, tetapi tamu yang sudah check-in tanggal 24 dan menginap sampai 26 tetap bisa.
-      2. **Close To Departure**: Membatasi tamu untuk tidak bisa check-out pada tanggal tertentu. **Contoh Kasus**: Jika tanggal 31 Desember diset CTD = ON, maka tamu tidak bisa mengakhiri masa inapnya di tanggal 31, tapi masih bisa stay melewati tanggal itu (misal checkout 1 Januari).
-      3. **Max Stay**: Menentukan batas maksimum jumlah malam yang bisa dipesan oleh tamu. **Contoh Kasus**:
-      Jika Max Stay = 5, maka tamu hanya bisa memesan maksimal 5 malam berturut-turut.
-      4. **Min Stay**: Menentukan jumlah malam minimum yang wajib dipesan oleh tamu. **Contoh Kasus**:
-      Jika Min Stay = 3, maka tamu tidak bisa memesan hanya 1 atau 2 malam, harus minimal 3 malam.
-      5. **Rate**: Harga per malam (rate) yang dikirim ke OTA melalui Channel Manager. **Kegunaan**:
-      Nilai ini adalah tarif jual kamar yang akan muncul di OTA seperti Booking.com, Agoda, Traveloka, dsb.
-      6. **Stop Sell**: Menutup penjualan kamar di tanggal tertentu, artinya tidak ada kamar yang bisa dipesan di OTA untuk tanggal itu. **Contoh Kasus**:
-      Jika Stop Sell = ON untuk 20 Desember, maka tanggal tersebut akan tertutup di semua OTA — walaupun kamar masih tersedia di sistem internal.
+      **Details of Restriction Options:**
+        1. **Close To Arrival**: Restricts guests from checking in on certain dates, but they can still stay if they checked in earlier. **Example**: If October 25 is set to CTA = ON, guests cannot start their stay on October 25, but those who checked in on October 24 and stay until the 26th are allowed.
+        2. **Close To Departure**: Restricts guests from checking out on certain dates. **Example**: If December 31 is set to CTD = ON, guests cannot end their stay on December 31, but can stay past that date (e.g., checkout January 1).
+        3. **Max Stay**: Sets the maximum number of nights a guest can book. **Example**: If Max Stay = 5, guests can only book up to 5 consecutive nights.
+        4. **Min Stay**: Sets the minimum number of nights a guest must book. **Example**: If Min Stay = 3, guests cannot book just 1 or 2 nights, must book at least 3 nights.
+        5. **Rate**: The nightly price (rate) sent to OTAs via Channel Manager. **Usage**: This is the selling price that will appear on OTAs like Booking.com, Agoda, Traveloka, etc.
+        6. **Stop Sell**: Closes room sales on certain dates, meaning no rooms can be booked on OTAs for those dates. **Example**: If Stop Sell = ON for December 20, that date will be closed on all OTAs—even if rooms are still available internally.
     :::
 
 ---
@@ -160,28 +154,32 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 # Bulk Update & Availability Rules
 
-**_Bulk Update_** adalah fitur untuk mengubah banyak data (rate, availability, restrictions, stop-sell, inventory allocation, mapping, dsb.) sekaligus untuk rentang tanggal, banyak room types, atau banyak channel/OTA dalam satu aksi.
+**_Bulk Update_** is a feature to change multiple data (rate, availability, restrictions, stop-sell, inventory allocation, mapping, etc.) at once for a date range, many room types, or many channels/OTAs in a single action.
 
-**Tujuan utama** :
-- Menghemat waktu operator daripada mengubah satu-per-satu.
-- Menjaga konsistensi pengaturan di banyak channel.
+**Main purposes**:
 
-**Komponen yang biasa bisa di-bulk**:
-- Availability / Inventory (jumlah kamar tersedia)
-- Stop Sell (tutup penjualan)
-- Min Stay / Max Stay (restriksi masa inap)
+- Save operator time compared to changing one-by-one.
+- Maintain consistent settings across many channels.
+
+**Components commonly updated in bulk**:
+
+- Availability / Inventory (number of rooms available)
+- Stop Sell (close sales)
+- Min Stay / Max Stay (stay restrictions)
 - Close To Arrival / Close To Departure
-- Rate Plan Assignment (ganti rate plan untuk banyak tanggal)
-- Promotions / Discounts (terapkan diskon massal)
-- Channel selection — targetkan semua OTA atau subset (mis. Booking + Agoda)
+- Rate Plan Assignment (change rate plan for many dates)
+- Promotions / Discounts (apply mass discounts)
+- Channel selection — target all OTAs or a subset (e.g. Booking + Agoda)
 
 **_Availability Rule_** is a way to setup Availability Overrides for specific Room Types and Channels. This feature can be useful if you would like to close out some specific channel, decrease Availability or set Max Availability for it.
 
 **Example of use cases**:
+
 - Stop sales for Christmas vacation at Channel A
 - Set Max Availability for Room Type A at Channel B
 
-**Detail penjelasan**:
+**Detailed Explanation**:
+
 - **Affected Dates**: Here you should set the date range for the rule, you can set many years ahead if you want to set for a long time
 - **Type**: Close Out, Availability Offset, Max Availability _(Details below what each of these means)_
 - **Affected Channels**: You need to select which OTA this rul applies to
@@ -201,6 +199,7 @@ _Example_: If you have 10 rooms and set Max Availability to 5 then the channel w
 If one room is booked and now 9 total is left the channel will still get an update to show 5. It will work like this until the total available is less than the max available rooms and then it will work as normal.
 
 _Typical Use Cases_:
+
 - Limit rooms available so you don't get large group bookings
 
 - Limit rooms available so rooms look more scarce on the channel
@@ -211,6 +210,7 @@ If you set "2" to the offset and you have 10 double rooms total then you will ha
 Once you have 2 rooms left you end up with 0 rooms left (2 - 2 = 0)
 
 _Use Case_:
+
 - Stop giving availability to some high commission channels when only a few rooms left
 - Give last room availability to selected channels or own website
 
@@ -218,11 +218,11 @@ _Use Case_:
 
   </TabItem>
   <TabItem value="sync" label="Sinkronisasi">
-    Semua perubahan inventory akan otomatis tersinkron ke OTA.
+     All inventory changes will be automatically synchronized to OTAs.
     
-    - Tidak perlu update manual ke masing-masing OTA.
-    - Anda bisa click icon rantai yang berwarna biru untuk melihat detail ota yang terhubung dengan rate tersebut.
-    - Pada menu ini anda juga bisa melihat rate yang dikirim ke masing-masing ota.
+     - No need to manually update each OTA.
+     - You can click the blue chain icon to see details of OTAs connected to that rate.
+     - In this menu, you can also see the rate sent to each OTA.
     
     <img
       src="/img/cm/inv/sync-inv.png"
@@ -235,10 +235,10 @@ _Use Case_:
     />
   </TabItem>
   <TabItem value="log" label="Log Perubahan">
-    Anda dapat melihat riwayat perubahan inventory:
+     You can view the history of inventory changes:
     
-    - Tersedia log siapa yang mengubah, kapan, dan detail perubahan.
-    - Membantu audit dan troubleshooting jika ada masalah ketersediaan/harga di OTA.
+     - Logs are available showing who made changes, when, and the details.
+     - Helps with auditing and troubleshooting if there are issues with availability/pricing on OTAs.
     
     <BrowserOnly fallback={<div>Loading gallery...</div>}>
       {() => {
@@ -285,12 +285,12 @@ _Use Case_:
   </TabItem>
 </Tabs>
 
-## Informasi Tambahan
+## Additional Information
 
-- **Real-Time Update**: Setiap perubahan langsung dikirim ke seluruh OTA yang terhubung.
-- **Multi-Property**: Kelola inventory untuk banyak properti dalam satu dashboard.
-- **Keamanan Data**: Hanya user berwenang yang dapat mengubah inventory.
+- **Real-Time Update**: Every change is immediately sent to all connected OTAs.
+- **Multi-Property**: Manage inventory for multiple properties in one dashboard.
+- **Data Security**: Only authorized users can change inventory.
 
 :::info Penting
-Menu inventory sangat penting untuk memastikan ketersediaan kamar dan harga di semua channel selalu akurat dan up-to-date.
+The inventory menu is crucial to ensure room availability and prices on all channels are always accurate and up-to-date.
 :::

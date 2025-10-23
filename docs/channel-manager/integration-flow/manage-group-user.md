@@ -6,7 +6,7 @@ sidebar_position: 6
 
 # Manage Group User
 
-Menu **Manage Group User** adalah pusat pengelolaan grup/role user. Data yang diinputkan di sini akan digunakan untuk proses manajemen grup/role, pengaturan hak akses, dan pengelolaan anggota grup/role secara terstruktur.
+The **Manage Group User** menu is the center for managing user groups/roles. Data inputted here will be used for group/role management processes, access rights configuration, and structured group/role member management.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,22 +23,22 @@ import TabItem from '@theme/TabItem';
 />
 </div>
 
-## Mengapa Menu Manage Group/role User Penting?
+## Why is the Manage Group/Role User Menu Important?
 
-- **Manajemen Grup/role**: Mengelola grup/role user dan hak aksesnya
-- **CRUD Data Grup/role**: Membuat, mengedit, dan menghapus grup/role user
-- **Fleksibilitas**: Data grup/role dapat disesuaikan dengan kebutuhan operasional
+- **Group/Role Management**: Manage user groups/roles and their access rights
+- **Group/Role Data CRUD**: Create, edit, and delete user groups/roles
+- **Flexibility**: Group/role data can be adjusted according to operational needs
 
-## Pengelolaan Data Group/role User
+## Group/Role User Data Management
 
 <Tabs className="unique-tabs">
   <TabItem value="create" label="Create" default>
-    Untuk membuat grup/role user baru:
+    To create a new user group/role:
     
-    1. Klik tombol **"+ Create"** di pojok kanan atas.
-    2. Isi form dengan data grup/role yang diperlukan.
-    3. **Field dengan label merah wajib diisi** - pastikan tidak ada yang terlewat.
-    4. Simpan, dan data akan otomatis tersedia pada list.
+    1. Click the **"+ Create"** button in the top right corner.
+    2. Fill the form with required group/role data.
+    3. **Fields with red labels are mandatory** - make sure nothing is missed.
+    4. Save, and data will automatically be available in the list.
     
     <img
       src="/img/cm/manage-group-user/group-form.png"
@@ -50,16 +50,17 @@ import TabItem from '@theme/TabItem';
       }}
     />
 
-    :::warning Field Wajib
-    Pastikan semua field dengan **label merah** telah diisi dengan benar sebelum menyimpan data.
+    :::warning Mandatory Fields
+    Make sure all fields with **red labels** have been filled correctly before saving data.
     :::
+
   </TabItem>
   <TabItem value="edit" label="Edit">
-    Untuk mengedit data grup/role user yang sudah ada:
+    To edit existing user group/role data:
     
-    - Klik tombol **Edit** pada baris data yang ingin diubah.
-    - Ubah data sesuai kebutuhan (field merah tetap wajib diisi).
-    - Simpan perubahan, data akan terupdate di sistem terkait.
+    - Click the **Edit** button on the data row you want to change.
+    - Change data as needed (red fields remain mandatory).
+    - Save changes, data will be updated in related systems.
     
     <img
       src="/img/cm/manage-group-user/group-edit.png"
@@ -71,15 +72,15 @@ import TabItem from '@theme/TabItem';
       }}
     />
     :::info Auto-Update
-    Perubahan data akan otomatis tersinkron ke sistem yang terhubung.
+    Data changes will automatically sync to connected systems.
     :::
   </TabItem>
   <TabItem value="delete" label="Remove">
-    Untuk menghapus grup/role user:
+    To delete user group/role:
     
-    - Klik tombol **Remove** pada baris data yang akan dihapus.
-    - Konfirmasi penghapusan melalui dialog yang muncul.
-    - Data grup/role akan dihapus dari sistem dan tidak lagi tersedia.
+    - Click the **Remove** button on the data row to be deleted.
+    - Confirm deletion through the dialog that appears.
+    - Group/role data will be deleted from the system and no longer available.
     
     <img
       src="/img/cm/manage-group-user/group-remove.png"
@@ -90,23 +91,23 @@ import TabItem from '@theme/TabItem';
         boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
       }}
     />
-    :::danger Peringatan
-    Penghapusan data grup/role akan menghapus semua hak akses dan anggota terkait. Pastikan tidak ada proses aktif sebelum menghapus.
+    :::danger Warning
+    Deleting group/role data will remove all related access rights and members. Make sure no active processes exist before deleting.
     :::
   </TabItem>
 </Tabs>
 
-## Detail Form Input Group User
+## Group User Input Form Details
 
-### Field Wajib (Label Merah)
+### Mandatory Fields (Red Label)
 
-- **Code**:  Code group/role user `required`
-- **Name**: Nama grup/role user `required`
+- **Code**: Group/role user code `required`
+- **Name**: Group/role user name `required`
 
-## Integrasi Hak Akses Grup
+## Group Access Rights Integration
 
-Data yang diinputkan di menu Manage Group User akan otomatis digunakan untuk pengaturan hak akses dan anggota grup/role di sistem integrasi.
+Data inputted in the Manage Group User menu will automatically be used for access rights configuration and group/role members in the integration system.
 
 :::tip Best Practice
-Disarankan untuk menginput data grup/role user sesuai dengan kebutuhan operasional dan struktur organisasi.
+It is recommended to input group/role user data according to operational needs and organizational structure.
 :::

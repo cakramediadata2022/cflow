@@ -2,86 +2,86 @@
 title: Channel Manager Overview
 slug: /channel-manager
 sidebar_label: Channel Manager
-description: Panduan lengkap penggunaan Channel Manager untuk integrasi hotel dengan berbagai OTA dan sinkronisasi dengan PMS.
+description: Complete guide for using Channel Manager for hotel integration with various OTAs and synchronization with PMS.
 sidebar_position: 1
 ---
 
 # Channel Manager
 
-Channel Manager adalah sistem yang memungkinkan hotel untuk mengelola distribusi kamar dan harga secara terpusat ke berbagai Online Travel Agent (OTA) seperti Booking.com, Expedia, Airbnb, dan lainnya.
+Channel Manager is a system that enables hotels to centrally manage room distribution and pricing to various Online Travel Agents (OTAs) such as Booking.com, Expedia, Airbnb, and others.
 
 ## 🚀 Quick Start
 
-Untuk memulai menggunakan Channel Manager, ikuti langkah-langkah berikut:
+To start using Channel Manager, follow these steps:
 
-1. **[Setup Property & Room Types](tutorials/room-type.md)** - Buat property dan definisikan tipe kamar
-2. **[Konfigurasi Rate Plans](tutorials/rate-plans.md)** - Setup rate plan dan strategi pricing
-3. **[Hubungkan Channel OTA](tutorials/channels.md)** - Koneksikan dengan berbagai OTA
-4. **[Kelola Inventory](tutorials/inventory.mdx)** - Update ketersediaan dan harga real-time
-5. **[Monitor Bookings](tutorials/booking.mdx)** - Pantau dan kelola booking dari semua channel
+1. **[Setup Property & Room Types](tutorials/room-type.md)** - Create property and define room types
+2. **[Configure Rate Plans](tutorials/rate-plans.md)** - Setup rate plans and pricing strategies
+3. **[Connect OTA Channels](tutorials/channels.md)** - Connect with various OTAs
+4. **[Manage Inventory](tutorials/inventory.mdx)** - Update availability and rates in real-time
+5. **[Monitor Bookings](tutorials/booking.mdx)** - Monitor and manage bookings from all channels
 
-## 📋 Menu Utama
+## 📋 Main Menu
 
 ### Core Management
 
-- **[Properties](tutorials/)** - Kelola data property dan konfigurasi dasar
-- **[Room Types](tutorials/room-type.md)** - Definisi dan pengelolaan tipe kamar
-- **[Rate Plans](tutorials/rate-plans.md)** - Setup rate plan dan aturan harga
-- **[Inventory](tutorials/inventory.mdx)** - Pengelolaan ketersediaan dan harga real-time
+- **[Properties](tutorials/)** - Manage property data and basic configuration
+- **[Room Types](tutorials/room-type.md)** - Room type definition and management
+- **[Rate Plans](tutorials/rate-plans.md)** - Rate plan setup and pricing rules
+- **[Inventory](tutorials/inventory.mdx)** - Real-time availability and pricing management
 
 ### Channel Operations
 
-- **[Channels](tutorials/channels.md)** - Koneksi dan pengelolaan OTA partners
-- **[Bookings](tutorials/booking.mdx)** - Monitoring dan pengelolan reservasi
-- **[Dashboard](tutorials/dashboard.md)** - Overview performa dan analytics
+- **[Channels](tutorials/channels.md)** - OTA partners connection and management
+- **[Bookings](tutorials/booking.mdx)** - Reservation monitoring and management
+- **[Dashboard](tutorials/dashboard.md)** - Performance overview and analytics
 
-## 🔗 Integrasi & API
+## 🔗 Integration & API
 
 ### PMS Integration
 
-- **[🔥 Integrasi CM-PMS-Service](integration-flow/channel-manager-pms-integration.md)** - Panduan lengkap integrasi Channel Manager dengan Property Management System
-- **[API Documentation](api-docs/)** - Dokumentasi API untuk developer
-- **[Status Codes](api-docs/status-code.md)** - Referensi HTTP status codes
+- **[🔥 CM-PMS-Service Integration](integration-flow/channel-manager-pms-integration.md)** - Complete guide for Channel Manager integration with Property Management System
+- **[API Documentation](api-docs/)** - API documentation for developers
+- **[Status Codes](api-docs/status-code.md)** - HTTP status codes reference
 
 ## 📊 Key Features
 
 ### ✅ Multi-Channel Distribution
 
-Distribusikan inventory ke 50+ OTA secara otomatis dengan satu kali setup.
+Automatically distribute inventory to 50+ OTAs with one-time setup.
 
 ### ✅ Real-Time Synchronization
 
-Update ketersediaan dan harga real-time ke semua channel tanpa delay.
+Update availability and rates in real-time to all channels without delay.
 
 ### ✅ Centralized Management
 
-Kelola semua booking dan inventory dari satu dashboard terpusat.
+Manage all bookings and inventory from one centralized dashboard.
 
 ### ✅ PMS Integration
 
-Integrasi seamless dengan berbagai Property Management System.
+Seamless integration with various Property Management Systems.
 
 ### ✅ Analytics & Reporting
 
-Dashboard analytics untuk monitoring performa dan revenue optimization.
+Analytics dashboard for performance monitoring and revenue optimization.
 
 ## 🎯 Best Practices
 
-1. **Setup Room Types dengan Benar** - Pastikan room type mapping konsisten dengan PMS
-2. **Konfigurasi Rate Plans Strategic** - Buat rate plan yang fleksibel untuk berbagai segmen
-3. **Monitor Inventory Real-Time** - Selalu update ketersediaan untuk avoid overbooking
-4. **Regular Channel Health Check** - Periksa status koneksi channel secara berkala
-5. **Backup & Recovery Plan** - Siapkan prosedur backup untuk data critical
+1. **Setup Room Types Correctly** - Ensure room type mapping is consistent with PMS
+2. **Configure Strategic Rate Plans** - Create flexible rate plans for various segments
+3. **Monitor Inventory Real-Time** - Always update availability to avoid overbooking
+4. **Regular Channel Health Check** - Check channel connection status regularly
+5. **Backup & Recovery Plan** - Prepare backup procedures for critical data
 
 ## 🆘 Support & Resources
 
-- **[Tutorial Login](tutorials/tutorial-login.md)** - Panduan akses dan authentication
+- **[Login Tutorial](tutorials/tutorial-login.md)** - Access and authentication guide
 - **Technical Support:** support@cakramedia.com
-- **Developer Resources:** API documentation dan sample code
-- **Community Forum:** Diskusi dengan user lain dan sharing best practices
+- **Developer Resources:** API documentation and sample code
+- **Community Forum:** Discussion with other users and sharing best practices
 
 ---
 
-**💡 Tip:** Mulai dengan setup property dan room types terlebih dahulu sebelum menghubungkan channel OTA. Pastikan semua data master sudah benar untuk memudahkan mapping ke OTA partners.
+**💡 Tip:** Start by setting up property and room types first before connecting OTA channels. Make sure all master data is correct to facilitate mapping to OTA partners.
 
-**🔔 Penting:** Selalu lakukan testing di staging environment sebelum go-live ke production untuk memastikan semua integrasi berjalan dengan baik.
+**🔔 Important:** Always test in staging environment before going live to production to ensure all integrations work properly.
