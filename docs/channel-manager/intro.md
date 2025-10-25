@@ -4,9 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-Welcome to Cakrahub Channel Manager! Officially launched in January 2025, our channel manager has been trusted by more than 10 clients and continues to grow rapidly.
-
-Cakrahub Channel Manager is designed to empower hotels and property owners with a robust and feature-rich platform to efficiently manage room distribution and maximize occupancy rates across various sales channels.
+Welcome to Cakrahub Channel Manager! Officially launched in January 2025. Cakrahub Channel Manager is designed to empower hotels and property owners with a robust and feature-rich platform to efficiently manage room distribution and maximize occupancy rates across various sales channels.
 
 ## Key Features
 
