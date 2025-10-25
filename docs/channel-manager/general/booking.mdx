@@ -1,0 +1,138 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import "react-image-gallery/styles/css/image-gallery.css";
+
+# Bookings
+
+The **Bookings** menu is used to display and filter the list of reservations (bookings) received from various OTAs (Online Travel Agents) into the PMS system. This menu does not provide features to create, edit, or delete bookings manually. All booking data displayed is the result of automatic synchronization from OTAs.
+
+<div style={{ marginBottom: "1.5rem" }}>
+  <img
+    src="/img/cm/bookings/booking-list.png"
+    alt="Bookings Management"
+    style={{
+      width: "100%",
+      borderRadius: "12px",
+      boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+    }}
+  />
+</div>
+
+## Main Bookings Functions
+
+- **Real-Time Monitoring**: All latest bookings from OTAs directly appear on the dashboard.
+- **Filter & Search**: Can filter booking lists based on date, status, OTA, or guest name.
+- **View Details**: Can view complete details of guest data, rooms, and booking status received from OTAs.
+- **Resolve Mapping**: If there are bookings received but room type or rate is not yet mapped, this menu provides a resolve feature to connect booking data to the correct room type and rate in the system.
+
+## Bookings Menu Features
+
+<Tabs className="unique-tabs">
+
+  <TabItem value="list" label="View & Filter Bookings" default>
+
+    On the Bookings page, you can:
+
+    - View the entire list of bookings received from various OTAs.
+    - Table displays guest name, check-in/check-out dates, booking status, OTA source, and total payment.
+    - Use search and filter features for quick searches based on date, status, OTA, or guest name.
+
+    <img
+      src="/img/cm/bookings/booking-list.png"
+      alt="Booking List"
+      style={{
+        borderRadius: "8px",
+        marginTop: "1rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
+    />
+
+  </TabItem>
+
+  <TabItem value="detail" label="Viw Booking Details">
+
+      Click on a booking row to view complete details:
+
+      - Guest information, room, price, special requests, change history, and payment status received from the OTA.
+      - There is no edit feature, only a detailed view of the booking data.
+
+      <img
+        src="/img/cm/bookings/booking-view.png"
+        alt="Booking Details"
+        style={{
+          borderRadius: "8px",
+          marginTop: "1rem",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+        }}
+      />
+
+  </TabItem>
+
+  <TabItem value="resolve" label="Resolve Mapping">
+
+     If there is a booking received but the room type or rate has not been mapped,
+     a notification and **Resolve** button will appear.
+
+     - Click **Resolve** to view the second detail from the booking data.
+     - Click **Allocate** to display a form where you can link the booking to the correct room type and rate in the system.
+     - After successfully resolved, the booking will be connected and entered into the PMS.
+
+    <BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/bookings/detail-resolve.png" },
+          { original: "/img/cm/bookings/detail-resolve2.png" },
+          { original: "/img/cm/bookings/detail-resolve3.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+  </TabItem>
+</Tabs>
+
+:::info Penting
+The resolve feature only appears if there is a booking that has not been linked to a room type or rate in the system.
+:::
+
+## Catatan Penting
+
+- The bookings menu is only for displaying, filtering, and viewing details of booking data received from OTAs.
+- There is no feature to create, edit, or delete bookings manually.

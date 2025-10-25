@@ -1,0 +1,296 @@
+---
+sidebar_position: 4
+---
+
+# Inventory
+
+The Inventory menu is used to manage room availability, rates, and restrictions in real-time to various OTAs (Online Travel Agents).
+
+<div style={{ marginBottom: "1.5rem" }}>
+  <img
+    src="/img/cm/inv/inv-list.png"
+    alt="Inventory"
+    style={{
+      width: "100%",
+      borderRadius: "12px",
+      boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+    }}
+  />
+</div>
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import "react-image-gallery/styles/css/image-gallery.css";
+
+## Inventory Features & Usage
+
+<Tabs className="unique-tabs">
+  <TabItem value="list" label="View Inventory" default>
+    On the Inventory page, you can view all room availability data, rates, and restrictions for each date and room type.
+    
+    - Table displays date, room type, available quantity, rates, and restrictions (min stay, max stay, etc.).
+    - Use room rate or room type filters for quick search.
+    
+    <img
+      src="/img/cm/inv/inv-list.png"
+      alt="Inventory List"
+      style={{
+        borderRadius: "8px",
+        marginTop: "1rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
+    />
+    
+  </TabItem>
+  <TabItem value="update" label="Update Inventory">
+     To update inventory data:
+    
+     - Click on inventory data, you can click rate or availability.
+     - Input form appears.
+     - Select the date and room type you want to change.
+     - Enter the new availability, price, or restriction.
+     - Save changes, data will be instantly synchronized to all OTAs.
+    
+    <BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/inv/update-inv1.png" },
+          { original: "/img/cm/inv/update-inv2.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+
+    :::info Update Inventory
+      - **Date Range**: You can select from which date the availability or rate will be updated.
+      - **Restriction**: There are restriction options when updating rates such as: close to arrival, close to departure, max stay, min stay, rate, and stop sell, _default **rate**_.
+
+      **Details of Restriction Options:**
+        1. **Close To Arrival**: Restricts guests from checking in on certain dates, but they can still stay if they checked in earlier. **Example**: If October 25 is set to CTA = ON, guests cannot start their stay on October 25, but those who checked in on October 24 and stay until the 26th are allowed.
+        2. **Close To Departure**: Restricts guests from checking out on certain dates. **Example**: If December 31 is set to CTD = ON, guests cannot end their stay on December 31, but can stay past that date (e.g., checkout January 1).
+        3. **Max Stay**: Sets the maximum number of nights a guest can book. **Example**: If Max Stay = 5, guests can only book up to 5 consecutive nights.
+        4. **Min Stay**: Sets the minimum number of nights a guest must book. **Example**: If Min Stay = 3, guests cannot book just 1 or 2 nights, must book at least 3 nights.
+        5. **Rate**: The nightly price (rate) sent to OTAs via Channel Manager. **Usage**: This is the selling price that will appear on OTAs like Booking.com, Agoda, Traveloka, etc.
+        6. **Stop Sell**: Closes room sales on certain dates, meaning no rooms can be booked on OTAs for those dates. **Example**: If Stop Sell = ON for December 20, that date will be closed on all OTAs—even if rooms are still available internally.
+    :::
+
+---
+
+<BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/inv/update-inv3.png" },
+          { original: "/img/cm/inv/update-inv4.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+# Bulk Update & Availability Rules
+
+**_Bulk Update_** is a feature to change multiple data (rate, availability, restrictions, stop-sell, inventory allocation, mapping, etc.) at once for a date range, many room types, or many channels/OTAs in a single action.
+
+**Main purposes**:
+
+- Save operator time compared to changing one-by-one.
+- Maintain consistent settings across many channels.
+
+**Components commonly updated in bulk**:
+
+- Availability / Inventory (number of rooms available)
+- Stop Sell (close sales)
+- Min Stay / Max Stay (stay restrictions)
+- Close To Arrival / Close To Departure
+- Rate Plan Assignment (change rate plan for many dates)
+- Promotions / Discounts (apply mass discounts)
+- Channel selection — target all OTAs or a subset (e.g. Booking + Agoda)
+
+**_Availability Rule_** is a way to setup Availability Overrides for specific Room Types and Channels. This feature can be useful if you would like to close out some specific channel, decrease Availability or set Max Availability for it.
+
+**Example of use cases**:
+
+- Stop sales for Christmas vacation at Channel A
+- Set Max Availability for Room Type A at Channel B
+
+**Detailed Explanation**:
+
+- **Affected Dates**: Here you should set the date range for the rule, you can set many years ahead if you want to set for a long time
+- **Type**: Close Out, Availability Offset, Max Availability _(Details below what each of these means)_
+- **Affected Channels**: You need to select which OTA this rul applies to
+- **Room Types**: Choose which room types this rule affects.
+
+:::tip Detail Type
+
+**_Close Out_**
+This is used if you want to stop giving availability for this OTA on the selected dates
+
+_Example_: You want to block all of August to Expedia as you are busy with direct sales instead.
+
+**_Max Availability_**
+This setting will limit the availability for the room
+
+_Example_: If you have 10 rooms and set Max Availability to 5 then the channel will only see 5 rooms available even if you have 10 total.
+If one room is booked and now 9 total is left the channel will still get an update to show 5. It will work like this until the total available is less than the max available rooms and then it will work as normal.
+
+_Typical Use Cases_:
+
+- Limit rooms available so you don't get large group bookings
+
+- Limit rooms available so rooms look more scarce on the channel
+
+**_Availability Offset_**
+This setting just applies a negative amount to the availability, you don't need to enter a negative sign.
+If you set "2" to the offset and you have 10 double rooms total then you will have 10 - 2 = 8 rooms to sell.
+Once you have 2 rooms left you end up with 0 rooms left (2 - 2 = 0)
+
+_Use Case_:
+
+- Stop giving availability to some high commission channels when only a few rooms left
+- Give last room availability to selected channels or own website
+
+:::
+
+  </TabItem>
+  <TabItem value="sync" label="Sinkronisasi">
+     All inventory changes will be automatically synchronized to OTAs.
+    
+     - No need to manually update each OTA.
+     - You can click the blue chain icon to see details of OTAs connected to that rate.
+     - In this menu, you can also see the rate sent to each OTA.
+    
+    <img
+      src="/img/cm/inv/sync-inv.png"
+      alt="Sync Inv"
+      style={{
+        borderRadius: "8px",
+        marginTop: "1rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
+    />
+  </TabItem>
+  <TabItem value="log" label="Log Perubahan">
+     You can view the history of inventory changes:
+    
+     - Logs are available showing who made changes, when, and the details.
+     - Helps with auditing and troubleshooting if there are issues with availability/pricing on OTAs.
+    
+    <BrowserOnly fallback={<div>Loading gallery...</div>}>
+      {() => {
+        const React = require("react");
+        const { useEffect, useState } = React;
+        const [Gallery, setGallery] = useState(null);
+
+        useEffect(() => {
+          import("react-image-gallery").then((mod) => setGallery(() => mod.default));
+        }, []);
+
+        if (!Gallery) {
+          return <div>Loading gallery...</div>;
+        }
+
+        const images = [
+          { original: "/img/cm/inv/inv-log1.png" },
+          { original: "/img/cm/inv/inv-log2.png" },
+        ];
+
+        return (
+          <Gallery
+            items={images}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            renderItem={item => (
+              <img
+                src={item.original}
+                alt="Gallery Booking"
+                style={{
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  width: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            )}
+          />
+        );
+      }}
+    </BrowserOnly>
+
+  </TabItem>
+</Tabs>
+
+## Additional Information
+
+- **Real-Time Update**: Every change is immediately sent to all connected OTAs.
+- **Multi-Property**: Manage inventory for multiple properties in one dashboard.
+- **Data Security**: Only authorized users can change inventory.
+
+:::info Penting
+The inventory menu is crucial to ensure room availability and prices on all channels are always accurate and up-to-date.
+:::
