@@ -3,6 +3,7 @@
 
 # Production
 /build
+/.vscode
 
 # Production Zip
 /build.zip
