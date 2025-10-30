@@ -1,0 +1,914 @@
+{
+	"info": {
+		"_postman_id": "550210a9-7066-4f76-8e33-bef032e524cc",
+		"name": "Booking Engine Plugin APIs Copy",
+		"description": "API collection for Booking Engine Plugin endpoints (/plugin/v1/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28763545",
+		"_collection_link": "https://great-el-guapano.postman.co/workspace/Cakrasoft-Mikroservice~fe28f999-58b1-4e21-8067-44a44ea5db6b/collection/28763545-550210a9-7066-4f76-8e33-bef032e524cc?action=share&source=collection_link&creator=28763545"
+	},
+	"item": [
+		{
+			"name": "Image Assets",
+			"item": [
+				{
+					"name": "Get Hotel Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/hotels/{{chain_code}}/{{hotel_code}}/{{image_name}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"hotels",
+								"{{chain_code}}",
+								"{{hotel_code}}",
+								"{{image_name}}"
+							]
+						},
+						"description": "Get hotel image (no authentication required)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hotel Header Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/hotels/header/{{chain_code}}/{{hotel_code}}/{{image_name}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"hotels",
+								"header",
+								"{{chain_code}}",
+								"{{hotel_code}}",
+								"{{image_name}}"
+							]
+						},
+						"description": "Get hotel header image (no authentication required)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Room Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/rooms/{{chain_code}}/{{hotel_code}}/{{room_code}}/{{image_name}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"rooms",
+								"{{chain_code}}",
+								"{{hotel_code}}",
+								"{{room_code}}",
+								"{{image_name}}"
+							]
+						},
+						"description": "Get room image (no authentication required)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client APIs",
+			"item": [
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/ping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"ping"
+							]
+						},
+						"description": "Test API connectivity and authentication"
+					},
+					"response": []
+				},
+				{
+					"name": "Test Authorization",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/test",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"test"
+							]
+						},
+						"description": "Test API authorization"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Room Availability",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/checkroomavailability?start_date=2025-01-01&end_date=2025-01-02&room_code={{room_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"checkroomavailability"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-01-02"
+								},
+								{
+									"key": "room_code",
+									"value": "{{room_code}}"
+								}
+							]
+						},
+						"description": "Check room availability for specific dates"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Availability URL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/getavailability?start_date=2025-01-01&end_date=2025-01-02",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"getavailability"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-01-02"
+								}
+							]
+						},
+						"description": "Get availability URL for booking widget"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hotel Information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/hotelinformation",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"hotelinformation"
+							]
+						},
+						"description": "Get hotel information for the authenticated API key"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Room Availability (Plugin)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/roomavailability?start_date=2025-01-01&end_date=2025-01-02",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"roomavailability"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-01-02"
+								}
+							]
+						},
+						"description": "Check room availability from plugin perspective"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room_code\": \"{{room_code}}\",\n  \"check_in_date\": \"2025-01-01\",\n  \"check_out_date\": \"2025-01-02\",\n  \"guest_name\": \"John Doe\",\n  \"guest_email\": \"john@example.com\",\n  \"guest_phone\": \"+1234567890\",\n  \"number_of_guests\": 2,\n  \"special_requests\": \"Late check-in requested\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/createbooking",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"createbooking"
+							]
+						},
+						"description": "Create a new room booking"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bookings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/getallbooking",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"getallbooking"
+							]
+						},
+						"description": "Get all bookings for the authenticated hotel"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin APIs",
+			"item": [
+				{
+					"name": "Create Room",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room_code\": \"ROOM001\",\n  \"room_name\": \"Deluxe Room\",\n  \"number_of_room\": 5,\n  \"room_bed\": 1,\n  \"room_size\": 25.5,\n  \"room_max_adult\": 2,\n  \"room_max_children\": 2,\n  \"room_description\": \"Spacious deluxe room with city view\",\n  \"is_publish\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/createroom",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"createroom"
+							]
+						},
+						"description": "Create a new room (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Rooms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/getallrooms",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"getallrooms"
+							]
+						},
+						"description": "Get all rooms for the authenticated hotel (admin access)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Room by Code",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/getroom/{{room_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"getroom",
+								"{{room_code}}"
+							]
+						},
+						"description": "Get specific room details by code (admin access)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Room",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room_code\": \"ROOM001\",\n  \"room_name\": \"Updated Deluxe Room\",\n  \"number_of_room\": 6,\n  \"room_bed\": 1,\n  \"room_size\": 26.0,\n  \"room_max_adult\": 2,\n  \"room_max_children\": 2,\n  \"room_description\": \"Updated spacious deluxe room with city view\",\n  \"is_publish\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/updateroom/{{room_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"updateroom",
+								"{{room_code}}"
+							]
+						},
+						"description": "Update room details (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Room",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/deleteroom/{{room_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"deleteroom",
+								"{{room_code}}"
+							]
+						},
+						"description": "Delete a room (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Room Availability",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"data\": [\n    {  \n    \"hotel_code\": \"MED-c98df6\",\n      \"room_code\": \"DLX\",\n      \"rate_code\": \"TST\",\n      \"room_availability_date\": \"2025-11-05T00:00:00Z\",\n      \"price\": 555555,\n      \"rate_detail\": [\n        {\n          \"rate_code\": \"TST\",\n          \"rate_price\": 150000,\n          \"cta\": 2,\n          \"ctd\": 1,\n          \"min_night\": 1,\n          \"max_night\": 30,\n          \"created_by\": \"api_user\"\n        },\n        {\n          \"rate_code\": \"SPRRO\",\n          \"rate_price\": 200000,\n          \"cta\": 3,\n          \"ctd\": 2,\n          \"min_night\": 2,\n          \"max_night\": 14,\n          \"created_by\": \"api_user\"\n        }\n      ],\n      \"number_of_rooms\": 10,\n      \"created_by\": \"api_user\"\n    },\n    {\n        \"hotel_code\": \"MED-c98df6\",\n      \"room_code\": \"ROOM001\",\n      \"rate_code\": \"TST\",\n      \"room_availability_date\": \"2025-11-06T00:00:00Z\",\n      \"price\": 300000,\n      \"rate_detail\": [\n        {\n          \"rate_code\": \"TST\",\n          \"rate_price\": 300000,\n          \"cta\": 4,\n          \"ctd\": 2,\n          \"min_night\": 3,\n          \"max_night\": 7,\n          \"created_by\": \"api_user\"\n        }\n      ],\n      \"number_of_rooms\": 5,\n      \"created_by\": \"api_user\"\n    }\n  ]\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/modifyroomavailability",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"modifyroomavailability"
+							]
+						},
+						"description": "Create room availability (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Room Availability",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/getallroomavailability?HotelCode={{hotel_code}}&StartDate=2025-10-01&EndDate=2025-10-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"getallroomavailability"
+							],
+							"query": [
+								{
+									"key": "HotelCode",
+									"value": "{{hotel_code}}"
+								},
+								{
+									"key": "StartDate",
+									"value": "2025-10-01"
+								},
+								{
+									"key": "EndDate",
+									"value": "2025-10-31"
+								}
+							]
+						},
+						"description": "Get all room availability for the authenticated hotel (admin access)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Room Availability",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room_code\": \"{{room_code}}\",\n  \"room_availability_date\": \"2025-01-01T00:00:00Z\",\n  \"room_price\": 150,\n  \"number_of_room\": 5\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/updateroomavailability/{{room_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"updateroomavailability",
+								"{{room_code}}"
+							]
+						},
+						"description": "Update room availability details (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Room Availability",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/deleteroomavailability/{{room_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"deleteroomavailability",
+								"{{room_code}}"
+							]
+						},
+						"description": "Delete room availability (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Stop Sell Room Availability",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room_code\": \"SPR\",\n  \"rate_code\": \"TST\",\n  \"start_date\": \"2025-10-30\",\n  \"end_date\": \"2025-10-30\",\n  \"is_close\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/updatestopsellroomavailability",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"updatestopsellroomavailability"
+							]
+						},
+						"description": "Update stop sell status for room availability (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Stop Sell Room Availability Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room_code\": \"SPR\",\n  \"rate_code\": \"TST\",\n  \"start_date\": \"2025-10-28\",\n  \"end_date\": \"2025-10-29\",\n  \"is_close\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/updatestopsellroomrateavailability",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"updatestopsellroomrateavailability"
+							]
+						},
+						"description": "Update stop sell status for room availability (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Room Rate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rate_code\": \"RATE001\",\n  \"rate_name\": \"Standard Rate\",\n  \"rate_description\": \"Standard room rate\",\n  \"start_date_rate\": \"2025-01-01T00:00:00Z\",\n  \"end_date_rate\": \"2025-12-31T23:59:59Z\",\n  \"price\": 100,\n  \"is_closed\": 0\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/createrate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"createrate"
+							]
+						},
+						"description": "Create a new room rate (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Rates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/getallrates",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"getallrates"
+							]
+						},
+						"description": "Get all rates for the authenticated hotel (admin access)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Rate by Code",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/getrate/{{rate_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"getrate",
+								"{{rate_code}}"
+							]
+						},
+						"description": "Get specific rate details by code (admin access)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Rate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rate_code\": \"RATE001\",\n  \"rate_name\": \"Updated Standard Rate\",\n  \"rate_description\": \"Updated standard room rate\",\n  \"start_date_rate\": \"2025-01-01T00:00:00Z\",\n  \"end_date_rate\": \"2025-12-31T23:59:59Z\",\n  \"price\": 120,\n  \"is_closed\": 0\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/updaterate/{{rate_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"updaterate",
+								"{{rate_code}}"
+							]
+						},
+						"description": "Update rate details (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rate",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/plugin/v1/deleterate/{{rate_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"plugin",
+								"v1",
+								"deleterate",
+								"{{rate_code}}"
+							]
+						},
+						"description": "Delete a rate (requires admin API key with is_admin=1)"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "token",
+			"value": "your-api-key-here"
+		},
+		{
+			"key": "chain_code",
+			"value": "TEST-CHAIN"
+		},
+		{
+			"key": "hotel_code",
+			"value": "TEST-001"
+		},
+		{
+			"key": "room_code",
+			"value": "ROOM001"
+		},
+		{
+			"key": "rate_code",
+			"value": "RATE001"
+		}
+	]
+}

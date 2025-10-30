@@ -1,6 +1,5 @@
 ---
 title: Channel Manager Overview
-slug: /channel-manager
 sidebar_label: Channel Manager
 description: Complete guide for using Channel Manager for hotel integration with various OTAs and synchronization with PMS.
 sidebar_position: 1
