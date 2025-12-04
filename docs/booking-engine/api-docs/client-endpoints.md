@@ -330,7 +330,8 @@ Create a new booking with guest details and payment processing.
     },
     "payment_info": {
         "redirect_url" : "https://example.com",
-        "send_url_to_email": true
+        "send_url_to_email": true,
+        "payment_gateway": true
     }
 }
 ```
@@ -359,6 +360,7 @@ Create a new booking with guest details and payment processing.
 - `payment_info`: Object containing payment preferences:
   - `redirect_url` (**required**): URL to redirect the user after booking or payment. This field must be provided in every request.
   - `send_url_to_email`: Boolean indicating if the payment/booking URL should be sent to the guest's email.
+  - `payment_gateway`(**required**): Boolean indicating if the payment/booking will use payment gateway or not, if this value is set to true, it will create URL to pay using payment gateway and the booking will not confirmed until the booking is paid, if it set to false, the booking will auto confirmed after it created.
 
 ---
 
