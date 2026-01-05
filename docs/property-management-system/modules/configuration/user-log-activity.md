@@ -1,6 +1,6 @@
 ---
 title: User Log Activity
-sidebar_position: 6
+sidebar_position: 9
 ---
 
 # User Log Activity
