@@ -330,6 +330,20 @@ Delete a rate plan.
 
 ## Additional Admin Endpoints
 
+### Cancel Booking
+
+Cancel a Booking.
+
+**Endpoint:** `POST /cancelbooking`
+
+**Request Body:**
+
+```json
+{
+  "booking_code": "BOC021 ",
+}
+```
+
 ### Ping
 
 Test API connectivity and authentication for admin access.
